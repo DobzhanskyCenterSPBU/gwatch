@@ -211,7 +211,7 @@ class DisplayRepository
 				AND 
 					g.chr = $chr 
 				LIMIT 1
-				) as gene, e.dbn AS effect 
+				) as gene
 		 FROM 
 		 	".$this->module( $module ).".ind r 
 		 JOIN 
@@ -221,12 +221,8 @@ class DisplayRepository
 		 JOIN 
 		 	".$this->module( $module ).".pos p 
 		 USING ( ind ) 
-		 LEFT JOIN 
-		 	GWATCH.medtable e 
-		 ON 
-		 	p.pos = e.pos 
-		 AND 
-		 	c.chr = e.chr  
+
+
 		 WHERE 
 		 	r.chr = $chr 
 		 AND 
