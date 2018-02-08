@@ -265,8 +265,10 @@ class DisplayController
 
 
 		$text = 'GWATCH';
-		$arr1 = str_split($text); 
-		$font = "/home/gwatch/htdocs/font/Artifika-Regular.ttf";
+		$arr1 = str_split($text);
+		 
+		
+		$font = system("pwd")."/font/Artifika-Regular.ttf";
 
 		$temp_x = 0;
 		for($i = 0; $i < count($arr1); ++$i) {
