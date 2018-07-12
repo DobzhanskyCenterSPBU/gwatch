@@ -1,0 +1,689 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified  :   
+% Created   :   
+% File      :  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{amsfonts}
+\usepackage{verbatim}
+\usepackage{chicago}
+%\usepackage{natbib,natbibspacing}
+\usepackage[active]{srcltx}
+%\oddsidemargin 0.0cm
+%\evensidemargin 0.0cm
+\topmargin -1.5cm
+\oddsidemargin +0.3cm
+\textwidth162mm
+\textheight235mm
+%\renewcommand{\baselinestretch}{.94}
+\renewcommand\refname{\centerline{\Large\bf References}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatletter
+\@addtoreset{equation}{section}
+%\renewcommand{\@biblabel}[1]{#1.\hfill}
+\makeatother
+\begin{document}
+\font\eufm = eufm10 scaled 1200
+%\def\u{{\bf u}}
+%\def\Beta{{\cal B}}
+%\def\D{\mbox{\bf D}}
+%\def\E{{\bf E}}
+%\def\Ff{\mbox{\eufm F}}
+%\def\N{{\cal N}}
+%\def\Nb{\mathbb N}
+%\def\P{{\bf P}}
+%\def\Rb{\mathbb R}
+%\def\vv{{\bf v}}
+%\def\X{{\bf X}}
+%\def\x{{\bf x}}
+%\def\di{\displaystyle}
+%\def\indi{1\hspace{-1,1mm}{\rm I}}
+%\def\toi#1{\mbox{\kern+5pt \hbox to 25pt{\rightarrowfill}
+% \kern-28pt \raise-5pt   \hbox{$\scriptstyle #1 \to \infty $ }\kern+1pt }}
+%\def\too#1{\mbox{\kern+3pt \hbox to 23pt{\rightarrowfill}
+% \kern-23pt \raise-5pt   \hbox{$\scriptstyle #1 \to 0 $} \kern+0pt }}
+%\def\tow{\stackrel{W}{\rightarrow}}
+%\def\top{{\;\buildrel \bf P  \over{\toi{n}}\;}}
+%\def\tr{{\rm \bf tr}}
+%\def\Var{\mbox{\bf Var}}
+
+\def\indi{{\mathbb I}}
+\def\var{\mbox{\bf var}}
+\def\cov{\mbox{\bf cov}}
+\def\diag{\mbox{diag}}
+\def\ssc{\scriptscriptstyle}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+
+%\pagestyle{myheadings}
+%********************************************************
+
+{\centerline{\Large\bf Linkage disequilibrium.\bigskip}}
+
+We consider first genetic markers of two alleles in diploid case. Then the allelic marker has two levels {\small "$+$"} and {\small "$-$"}, and the genotype marker has three levels  {\small "$++$"}, {\small "$+-$"} and {\small "$--$"}. 
+
+
+{\bf 1: Allelic linkage disequilibrium (LDE)} is based on the alele frequencies $p_{\ssc +}$ and $p_{\ssc -}$. For any two fixed locuses  denote $p_{xy}$ is the frequency of the variant $x$ at the first locus and variant $y$ at the second one. In these notations we have the following frequency table: \vspace{.5em}\\
+%\renewcommand{\arraystretch}{.7} 
+\centerline{\begin{tabular}{c|c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"       & Total \\
+\hline      
+"$+$"     & $p_{\ssc  ++}$   & $p_{\ssc  +-}$   & $p_{\ssc  +\bullet}$ \\
+"$-$"     & $p_{\ssc  -+}$   & $p_{\ssc --}$   & $p_{\ssc -\bullet}$ \\
+\hline
+Total & $p_{\ssc \bullet +}$    & $p_{\ssc \bullet -}$    & $1$ \\
+\end{tabular}}
+Introduce the coefficient $D=p_{\ssc  ++}-p_{\ssc \bullet +} p_{\ssc +\bullet}$, which is the covariance between the two random variables taking values $0$ under $+$ variant and $1$ under $-$ variant (or vice versa).
+
+There are two ways to determine the allelic LDE coefficients:
+$$
+r=\frac{D}{\sqrt{p_{\ssc +\bullet}(1-p_{\ssc +\bullet})p_{\ssc \bullet +}(1-p_{\ssc \bullet +)}}}
+$$ 
+and $r^2$ is commonly used, and
+$$
+D'=|D|/D_{\max},
+$$
+where 
+$$
+D_{\max}=
+\cases{
+\min(p_{\ssc +\bullet}p_{\ssc \bullet +},p_{\ssc -\bullet}p_{\bullet -}), \;\mbox{under}\; D<0 \cr
+\min(p_{\ssc +\bullet}p_{\ssc \bullet -},p_{\ssc -\bullet}p_{\ssc \bullet +}), \;\mbox{under}\; D>0. \cr
+}
+$$
+We are using the signed version of the $D'$ coefficient 
+$$
+D'_{s}=D/D_{\max}
+$$
+(or the $r$ coefficient) to measure allelic LDE in two locuses. 
+
+{\bf 2: Composite LDE.} In the diploid organisms all the genome variants in two locuses (haplotypes) are collected in the following table: 
+\vspace{0.5em}
+\\
+%\renewcommand{\arraystretch}{.7} 
+\centerline{\begin{tabular}{c|c|c|c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$       & "$++$"   & "$+-$"  &  "$-+$"   & "$--$"       & Total \\
+\hline      
+"$++$"     & $p_{\ssc ++++}$  & $p^{\circ}_{\ssc +++-}$ & $p^{\circ}_{\ssc ++-+}$ & $p_{\ssc ++--}$   & $p_{++\bullet}$ \\
+\hline 
+"$+-$"     & $p^{\circ}_{\ssc +-++}$  & $p^{\circ}_{\ssc +-+-}$ & $p^{\circ}_{\ssc +--+}$ & $p^{\circ}_{\ssc +----}$   & $p_{\ssc +-\bullet}$ \\
+\hline 
+"$-+$"     & $p^{\circ}_{\ssc -+++}$  & $p^{\circ}_{\ssc -++-}$ & $p^{\circ}_{\ssc -+-+}$ & $p^{\circ}_{\ssc -+--}$   & $p_{\ssc -+\bullet}$ \\
+\hline 
+"$--$"     & $p_{\ssc --++}$  & $p^{\circ}_{\ssc --+-}$ & $p^{\circ}_{\ssc ---+}$ & $p_{\ssc ----}$   & $p_{\ssc --\bullet}$ \\
+\hline
+Total & $p_{\ssc \bullet ++}$    & $p_{\ssc \bullet +-}$ &  $p_{\ssc \bullet -+}$  &  $p_{\ssc \bullet --}$   & $1$ \\
+\end{tabular}} 
+\vspace{.5em}\\
+After unification cells with identical combination we obtain 10-cells table: 
+\vspace{0.5em}
+\\
+%\renewcommand{\arraystretch}{.7} 
+\centerline{\begin{tabular}{c|c|c|c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$       & "$++$"   & "$+-$"  &  "$-+$"   & "$--$" & Total   \\
+\hline      
+"$++$"     & $p_{\ssc ++++}$  & \multicolumn{2}{c|}{$p_{\ssc +++-}$}  & $p_{\ssc ++--}$ & $p_{\ssc ++\bullet}$   \\
+\hline  
+"$+-$"     & $p_{\ssc +-++}$  & $p_{\ssc +-+-}$ & $p_{\ssc +--+}$ & $p_{\ssc +---}$ & $p_{\ssc +-\bullet}$  \\
+\hline  
+"$--$"     & $p_{\ssc --++}$  & \multicolumn{2}{c|}{$p_{\ssc --+-}$} & $p_{\ssc ----}$ & $p_{\ssc --\bullet}$  \\
+\hline  
+Total & $p_{\ssc \bullet ++}$    & \multicolumn{2}{c|}{$p_{\ssc \bullet +-}$} &  $p_{\ssc \bullet --}$   & $1$ \\
+\end{tabular}}
+\vspace{0.5em}
+were $p_{ijks}=2p^{\circ}_{ijks}=2p^{\circ}_{ijsk}=2p^{\circ}_{jiks}$. 
+
+The haploid (gametic)  part of the LDE: $D_g=p_{g}-p_{+\bullet}p_{\bullet +}$, where 
+$$
+p_{g}=p_{\ssc ++++}+p_{\ssc +++-}/2+p_{\ssc +-++}/2+(p_{\ssc +-+-}+p_{\ssc +--+})/4.
+$$
+The diploid (non gametic) part LDE:  $D_{d}=p_{d}-p_{\ssc +\bullet}p_{\ssc \bullet +}$ linkage disequilibrium, where 
+$$
+p_{d}=p_{\ssc ++++}+p_{\ssc +++-}/2+p_{\ssc +-++}/2+p_{\ssc +-+-}/2. 
+$$
+The composite LDE: 
+$$
+\Delta=D_{g}+D_{d}=p_{g}+p_{d}-2p_{\ssc +\bullet}p_{\ssc \bullet +}.
+$$
+
+If genotypes are known only the composite LDE cannot be obtained. Then one use the within chromosome equilibrium  $p_{\ssc +-+-}=p_{\ssc +--+}$. Under the within chromosome equilibrium $\Delta=2D_g$. 
+
+The composite linkage disequilibrium correlation is defined as follows:
+$$
+r=\frac{\Delta}{\sqrt{(p_{+\bullet}p_{-\bullet}+D_1)(p_{\bullet +}p_{\bullet -}+D_2)}},
+$$
+where $D_1=\mbox{\it HWD}_1=p_{\ssc ++\bullet}-p_{\ssc +\bullet}^2$, $D_2=\mbox{\it HWD}_2=p_{\ssc \bullet ++}-p_{\ssc \bullet +}^2$. 
+
+Under within chromosome equilibrium assumption if to set 
+%\renewcommand{\arraystretch}{.7} 
+\\ 
+$$
+\xi_1\!=\!
+\cases{
+-1, \; \mbox{if genotype is}\; {\scriptstyle "++"}, \cr
+0, \; \mbox{if genotype is}\; {\scriptstyle "+-"}, \cr
+1, \; \mbox{if genotype is}\; {\scriptstyle "--"}, \cr
+}
+\;
+\mbox{and}
+\quad
+\xi_2\!=\!
+\cases{
+-1, \; \mbox{if genotype is}\; {\scriptstyle "++"},\cr
+0, \; \mbox{if genotype is}\; {\scriptstyle "+-"}, \cr
+1, \; \mbox{if genotype is}\; {\scriptstyle "--"},\cr
+}
+$$
+then $\Delta=\cov(\xi_A,\xi_B)$ and $r=\mbox{\bf corr}(\xi_A,\xi_B)$.
+\end{document}
+
+Before starting cflculations of multiple tests the input clynical data should be checked. The phenotype should be a factor of $d$-levels. Number of the phenotype levels are calculated on the preliminary stage. Denote the common variant is {"\small $+$"} and the minor variant  is {\small "$-$"}. The genotype levels for the codominant, dominant and recessive alternatives and for the allelic approach are given in the following table. 
+
+\centerline{
+\begin{tabular}{lcccc}
+Test $\backslash$ Variant &  {\small "$++$" }   &  {\small "$+-$" } &  {\small "$--$" } & Missed \\
+\hline 
+Codominant & $0$  & $1$ & $2$ & $3$ \\
+Dominant & $0$  & $1$ & $1$ & $3$  \\ 
+Recessive &  $0$   & $0$ & $1$ & $3$  \\ 
+Allelic    & $(0,0)$ & $(1,0)$ & $(1,1)$ & $(3,3)$ 
+\vspace{+3mm}
+\end{tabular}
+}
+\noindent
+Under the allelic approach each observaton produces two with the same phenotype and genotype belonging to $\{0,1\}$, so the population size is doubled.
+
+The GWATCH forms $d\times 3$ contingency table $\{n_{ij}\}$ for the codominant alternative and $d\times 2$ contigency table $\{n_{ij}\}$ for other approaches, where $n_{ij}$ are the corresponding counts. Before starting multiple tests GWATCH classify the phenotype: {\it binary} or {\it multilevel}. GWATCH removes missed data for each SNP-test separately. 
+For each genetic marker GWATCH calculates P-value of the association test and QAS. 
+
+{\bf 2: The binary phenotype}\\
+Currently, GWATCH uses the $\chi^2$ test for {\it codominant} alternative, and the combined two sided  $\chi^2$ and Fisher's exact test by default in other cases. Let $n_{\cdot j}=\sum_i n_{ij}$, $n_{i\cdot}=\sum_j n_{ij}$ and $n=n_{\bullet}=\sum_{ij} n_{ij}$.  For the combined test: the $\chi^2$ test is used under $n_{i\cdot}n_{\cdot j}\geq 5$ for all $i,j\in \{1,2\}$ and Fisher's exact test is used otherwise. The QAS is the Fisher's $z$-transformation of Pearson's correlation coefficient 
+$
+z'=\log((1+\rho)/(1-\rho))/2,
+$
+where 
+$
+\rho=\frac{n_{12}+2n_{13}-n_{2\cdot} t /n}{\sqrt{n_{2\cdot}(1-n_{2\cdot}/n)(n_{\cdot 2}+4n_{\cdot 3}-t^2/n)}}
+$
+and $t=n_{\cdot 2}+2n_{\cdot 3}$, for {\it codominant} test, and the log odds ratio $lor=\log(n_{11}n_{22}/(n_{21}n_{12}))$ for other tests.   
+
+{\bf 3: The multilevel phenotype}\\
+Currently, GWATCH uses the $\chi^2$ test under multilevel phenotype, even in the case of $2\times 2$ table after removing missed data. The P-value is calculated from the obtained contigency table $d'\times l'$ ($d',l'>1$; $d'\leq d$; $l'\leq 3$ under the codominant alternative and $l'\leq 2$ otherwise)
+The QAS is the Fisher's $z$-transformation of Pearson's correlation coefficient 
+$
+z'=\log((1+\rho)/(1-\rho))/2,
+$
+where $\rho$ is the Pearson's correlation coefficient: 
+$$
+\rho=
+\cases{
+\frac{\sum_{i} (n_{i2}+2n_{i3})(i-1)-st /n}{\sqrt{\sum_i n_{i\cdot}(i-1)^2 -s^2/n)(n_{\cdot 2}+4n_{\cdot 3}-t^2/n)}},
+\quad\mbox{under codominant alternative},\cr
+\frac{\sum_{i} n_{i2}(i-1)-st /n}{\sqrt{\bigl(\sum_i n_{i\cdot}(i-1)^2 -s^2/n\bigr)n_{\cdot 2}(1-n_{\cdot 2}/n)}},
+\quad\;\;\;\mbox{otherwise},
+\cr
+}
+$$ 
+where $s=\sum_i n_{i\cdot}(i-1)$ and $t=n_{\cdot 2}+2n_{\cdot 3}$. 
+
+
+\end{document}
+
+We consider a conditional model based on a distribution of random vector $(Y,X)$ with binary components, parametrized by $p_{j|i}=P(Y=j|X=i)$, $i,j=1,2$. Remark that 
+$$
+n_{11}-n_{1\cdot}n_{\cdot 1}/n=n_{12}-n_{1\cdot}n_{\cdot 2}/n=
+n_{21}-n_{2\cdot}n_{\cdot 1}/n=n_{22}-n_{2\cdot}n_{\cdot 2}/n=x
+$$
+Therefore,
+$$
+X^2=x^2((n/n_{1\cdot}n_{\cdot 1})+(n/n_{2\cdot}n_{\cdot 1})+
+(n/n_{1\cdot}n_{\cdot 2})+(n/n_{2\cdot}n_{\cdot 2})){\scriptsize =x^2 n^3/(n_{1\cdot} n_{2\cdot} n_{\cdot 1} n_{\cdot 2})}.
+$$
+Denote $n_{i}=n_{\cdot i}$ is the fixed mumber of individuals in $i$-th group, $i=1,2$.
+Then, 
+$$
+X^2=n x^2/(\hat p_{1\cdot}\hat p_{2\cdot} n_1 n_2)=
+n (n_{11} n_2 - n_{21} n_1)^2/(\hat p_{1\cdot}(1-\hat p_{1\cdot}) n_1 n_2).
+$$
+On the other hand, 
+$$
+\sqrt{n_i}(n_{1i}/n_i-p_{1|i})\Rightarrow N(0,p_{1|i}(1-p_{1|i})), \quad i=1,2 
+$$
+and $n_{11},n_{12}$ are independent random variables. Under null hypothesis   
+$$
+H_{0}:p_{1|1}=p_{1|2}=p_{1\cdot}
+$$
+and, therefore,
+$$
+X=\frac{n_2 n_{11}- n_1 n_{12}}{\sqrt{n n_1 n_2 p_{1\cdot} (1-p_{1\cdot})}}\Rightarrow N(0,1)
+$$
+as $n_1\to\infty$ and $n_2\to\infty$. Note that,
+$$
+\frac{n_{\cdot 1}}{n}\sim\frac{n_1}{n} p_{1|1}+\frac{n_2}{n} p_{1|2}=p_{1|1}-\frac{n_2}{n} (p_{1|1}-p_{1|2})=p_{1|1}-\frac{n_2}{n} \Delta_1
+$$
+and
+$$
+\frac{n_{\cdot 2}}{n}\sim1-\Bigl(\frac{n_{1}}{n} p_{1|1}+\frac{n_2}{n} p_{1|2}=1-p_{1|1}+\frac{n_2}{n} (p_{1|1}-p_{1|2})=1-p_{1|1}+\frac{n_2}{n} \Delta_1
+$$
+Then,
+$$
+\frac{n_2 n_{11}-n_1 n_{12}}{\sqrt{n_1 n_2 n_{1\cdot} n_{2\cdot}}/n}\sim
+\frac{\sqrt{n_1 n_2} (p_{1|1}-p_{1|2})}{n\sqrt{(p_{1|1}-\frac{n_2}{n}\Delta_1)(1-p_{1|1}+\frac{n_2}{n}\Delta_1)}}
+$$
+and the non-centrality parameter is equal to 
+$$
+\mu_n^2\sim \frac{n_1 n_2}{n} \frac{\Delta_1^2}{(p_{1|1}-\frac{n_2}{n}\Delta_1)(1-p_{1|1}+\frac{n_2}{n}\Delta_1)}=
+\frac{n_1 n_2}{n} \frac{(p_{1|1}-p_{2|1})^2}{(\frac{n_1}{n}p_{1|1}+\frac{n_2}{n}p_{1|2})(\frac{n_1}{n}p_{2|1}+\frac{n_2}{n}p_{2|2})}.
+$$
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+\begin{center}
+{\Large\bf Appendix} 
+\end{center}
+
+\begin{center}
+{\large\bf Correlations}
+\end{center}
+
+{\bf Common multinomial approach.}
+
+Let $\vec n=(n_{111},n_{112},\ldots,n_{222})^{T}$ and $\vec p=(p_{111},p_{112},\ldots,p_{222})^{T}$. It is well known that $\vec n$ has multinomial distribution and 
+$$
+\sqrt n(\vec n/n-\vec p)\Rightarrow \vec\xi
+$$
+and the vector $\vec \xi=(\xi_{111},\xi_{112},\ldots,\xi_{222})^{T}$ has the normal distribution $N(0,\Sigma)$ with 
+$$
+\var(\xi_{ijk})=p_{ijk}(1-p_{ijk})\;\;\mbox{and}\;\;
+\cov(\xi_{ijk},\xi_{i'j'k'})=-p_{ijk}p_{i'j'k'}.
+$$
+
+Consider
+$$
+\tilde n=(n_{1\cdot 1},n_{1\cdot 2},n_{2\cdot 1},n_{2\cdot 2},n_{\cdot 11},n_{\cdot 12},n_{\cdot 21},n_{\cdot 22})^{T}
+$$ 
+and 
+$$
+\tilde p=(p_{1\cdot 1},p_{1\cdot 2},p_{2\cdot 1},p_{2\cdot 2},p_{\cdot 11},p_{\cdot 12},p_{\cdot 21},p_{\cdot 22})^{T},
+$$ 
+where $"\cdot"$ means the sum in corresponding index. Then,
+$$
+\sqrt n(\tilde n/n-\tilde p)\Rightarrow \vec\eta
+$$
+and $\vec\eta=(\eta_{1\cdot 1},\eta_{1\cdot 2},\eta_{2\cdot 1},\eta_{2\cdot 2},\eta_{\cdot 11},\eta_{\cdot 12},\eta_{\cdot 21},\eta_{\cdot 22})^{T}$ has mean zero normal distribution with the covariance matrix $\tilde\Sigma$ such that 
+$$
+\var(\eta_{i\cdot j})=p_{i\cdot j}(1-p_{i\cdot j}),
+$$
+$$
+\var(\eta_{\cdot ij})=p_{\cdot ij}(1-p_{\cdot ij}),
+$$
+$$
+\cov(\eta_{i\cdot j},\eta_{i'\cdot j'})=-p_{i\cdot j},p_{i'\cdot j'}\;\;\mbox{for}\;\; (i,j)\not =(i',j');
+$$
+$$
+\cov(\eta_{\cdot ij},\eta_{\cdot i'j'})=-p_{\cdot ij},p_{\cdot i'j'}\;\;\mbox{for}\;\; (i,j)\not =(i',j');
+$$
+$$
+\cov(\eta_{i\cdot j},\eta_{\cdot i'j'})=p_{ii'j}\indi_{\{j=j'\}}-p_{i\cdot j},p_{\cdot i'j'};
+$$
+or $\tilde\Sigma=$
+\arraycolsep=0.3pt
+$$
+\scriptsize
+=\!\!\left(\begin{array}{cccccccc}
+p_{1\cdot 1}(1\!-\!p_{1\cdot 1}) & -p_{1\cdot 1}p_{1\cdot 2} & -p_{1\cdot 1}p_{2\cdot 1} & -p_{1\cdot 1}p_{2\cdot 2} & p_{111}\!-\!p_{1\cdot 1}p_{\cdot 11} & -p_{1\cdot 1}p_{\cdot 12} & p_{121}\!-\!p_{1\cdot 1}p_{\cdot 21} & -p_{1\cdot 1}p_{\cdot 22} \\
+-p_{1\cdot 1}p_{1\cdot 2} & p_{1\cdot 2}(1\!-\!p_{1\cdot 2}) & -p_{1\cdot 2}p_{2\cdot 1} & -p_{1\cdot 2}p_{2\cdot 2} & -p_{1\cdot 2}p_{\cdot 11} & p_{112}\!-\!p_{1\cdot 2}p_{\cdot 12} &   -p_{1\cdot 2}p_{\cdot 21} & p_{122}\!-\!p_{1\cdot 2}p_{\cdot 22} \\
+-p_{1\cdot 1}p_{2\cdot 1} & -p_{1\cdot 2}p_{2\cdot 1} & p_{2\cdot 1}(1\!-\!p_{2\cdot 1}) &  -p_{2\cdot 1}p_{2\cdot 2} & p_{211}\!-\!p_{2\cdot 1}p_{\cdot 11} & -p_{2\cdot 1}p_{\cdot 12} & p_{221}\!-\!p_{2\cdot 1}p_{\cdot 21} & -p_{2\cdot 1}p_{\cdot 22} \\
+-p_{1\cdot 1}p_{2\cdot 2} & -p_{1\cdot 2}p_{2\cdot 2} & -p_{2\cdot 1}p_{2\cdot 2}  & p_{2\cdot 2}(1\!-\! p_{2\cdot 2}) & -p_{2\cdot 2}p_{\cdot 11} & p_{212}-p_{2\cdot 2}p_{\cdot 12} & -p_{2\cdot 2}p_{\cdot 21} & p_{222}-p_{2\cdot 2}p_{\cdot 22} \\
+p_{111}\!-\!p_{1\cdot 1}p_{\cdot 11} & -p_{1\cdot 2}p_{\cdot 11} & p_{211}\!-\!p_{2\cdot 1}p_{\cdot 11} & -p_{2\cdot 2}p_{\cdot 11} & p_{\cdot 11}(1\!-\! p_{\cdot 11}) & -p_{\cdot 11} p_{\cdot 12} & -p_{\cdot 11} p_{\cdot 21} & -p_{\cdot 11} p_{\cdot 22} \\
+-p_{1\cdot 1}p_{\cdot 12} & p_{112}\!-\!p_{1\cdot 2}p_{\cdot 12} & -p_{2\cdot 1}p_{\cdot 12} & p_{212}-p_{2\cdot 2}p_{\cdot 12} & -p_{\cdot 11} p_{\cdot 12} & p_{\cdot 12}(1\!-\! p_{\cdot 12})  & -p_{\cdot 12} p_{\cdot 21} & -p_{\cdot 12} p_{\cdot 22} \\
+p_{121}\!-\!p_{1\cdot 1}p_{\cdot 21} & -p_{1\cdot 2}p_{\cdot 21} & p_{221}\!-\!p_{2\cdot 1}p_{\cdot 21} & -p_{2\cdot 2}p_{\cdot 21} & -p_{\cdot 11} p_{\cdot 21} & -p_{\cdot 12} p_{\cdot 21} & p_{\cdot 21}(1\!-\!p_{\cdot 21})  & -p_{\cdot 21} p_{\cdot 22} \\
+-p_{1\cdot 1}p_{\cdot 22} & p_{122}\!-\!p_{1\cdot 2}p_{\cdot 22} & -p_{2\cdot 1}p_{\cdot 22} & p_{222}-p_{2\cdot 2}p_{\cdot 22} & -p_{\cdot 11} p_{\cdot 22} & -p_{\cdot 12} p_{\cdot 22} & -p_{\cdot 21} p_{\cdot 22}  &  p_{\cdot 22}(1\!-\!p_{\cdot 22}) 
+\end{array}\right)\!\!.
+$$
+
+Using Teylor's decomposition 
+$$
+\log (x+\delta)=\log x + x^{-1} \delta + o(\delta)
+$$
+by delta method we obtain that 
+$$
+\sqrt n(\log (\tilde n)-\log(\tilde p))=A \sqrt n (\tilde n -\tilde p)+o_P(1)=
+A \eta + o_P(1)=\vec\zeta,
+$$
+where $A=\diag(1/\tilde p)$ -- is the diagonal matrix with the elements of the vector $\tilde p$ on the diagonal. Then, the vector $\vec\zeta=(\zeta_{1\cdot 1},\zeta_{1\cdot 2},\zeta_{2\cdot 1},\zeta_{2\cdot 2},\zeta_{\cdot 11},\zeta_{\cdot 12},\zeta_{\cdot 21},\zeta_{\cdot 22})^{T}$ is normally distributed with the covariacnce matrix $\Upsilon=A\tilde \Sigma A$ with the elements
+$$
+\var(\zeta_{i\cdot j})=(1-p_{i\cdot j})/p_{i\cdot j},
+$$
+$$
+\var(\eta_{\cdot ij})=(1-p_{\cdot ij})/p_{\cdot ij},
+$$
+$$
+\cov(\eta_{i\cdot j},\eta_{i'\cdot j'})=\cov(\eta_{\cdot ij},\eta_{\cdot i'j'})=-1\;\;\mbox{for}\;\; (i,j)\not =(i',j');
+$$
+$$
+\cov(\eta_{i\cdot j},\eta_{\cdot i'j'})=\frac{p_{ii'j}}{p_{i\cdot j},p_{\cdot i'j'}}\indi_{\{j=j'\}}-1;
+$$
+or $\Upsilon=$
+\arraycolsep=0.3pt
+$$
+%\scriptsize
+=\!\!\left(\begin{array}{cccccccc}
+\frac{1\!-\!p_{1\cdot 1}}{p_{1\cdot 1}} & -1 & -1 & -1 & \frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}-1 & -1 & \frac{p_{121}}{p_{1\cdot 1}p_{\cdot 21}}-1 & -1 \\
+-1 & \frac{1\!-\!p_{1\cdot 2}}{p_{1\cdot 2}} & -1 & -1 & -1 & \frac{p_{112}}{p_{1\cdot 2}p_{\cdot 12}}-1 &   -1 & \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}}-1 \\
+-1 & -1 & \frac{1-p_{2\cdot 1}}{p_{2\cdot 1}} &  -1 & \frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}}-1 & -1 & \frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}-1 & -1 \\
+-1 & -1 & -1 & \frac{1-p_{2\cdot 2}}{p_{2\cdot 2}} & -1 & \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}-1 & -1 & \frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}}-1 \\
+\frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}-1 & -1 & \frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}}-1 & -1 & \frac{1\!-\! p_{\cdot 11}}{p_{\cdot 11}} & -1 & -1 & -1 \\
+-1 & \frac{p_{112}}{\!p_{1\cdot 2}p_{\cdot 12}}-1 & -1 & \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}-1 & -1 & \frac{1-p_{\cdot 12}}{p_{\cdot 12}}  & -1 & -1 \\
+\frac{p_{121}}{p_{1\cdot 1}p_{\cdot 21}}-1 & -1 & \frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}-1 & -1 & -1 & -1 & \frac{1\!-\!p_{\cdot 21}}{p_{\cdot 21}}  & -1 \\
+-1 & \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}}-1 & -1 & \frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}}-1 & -1 & -1 & -1  &  \frac{1\!-\!p_{\cdot 22}}{p_{\cdot 22}}
+\end{array}\right)\!\!=
+$$
+$$
+=\!\left(\begin{array}{cccccccc}
+p_{1\cdot 1}^{-1} & 0 & 0 & 0 & \frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}  & 0 & \frac{p_{121}}{p_{1\cdot 1}p_{\cdot 21}}  & 0 \\
+0 & p_{1\cdot 2}^{-1} & 0 & 0 & 0 & \frac{p_{112}}{p_{1\cdot 2}p_{\cdot 12}}  & 0 & \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}} \\
+0 & 0 & p_{2\cdot 1}^{-1} &  0 & \frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}}  & 0 & \frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}  & 0 \\
+0 & 0 & 0 & p_{2\cdot 2}^{-1} & 0 & \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}  & 0 & \frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}}  \\
+\frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}  & 0 & \frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}}  & 0 & p_{\cdot 11}^{-1} & 0 & 0 & 0 \\
+0 & \frac{p_{112}}{\!p_{1\cdot 2}p_{\cdot 12}} & 0 & \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}  & 0 & p_{\cdot 12}^{-1}  & 0 & 0 \\
+\frac{p_{121}}{p_{1\cdot 1}p_{\cdot 21}}  & 0 & \frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}  & 0 & 0 & 0 & p_{\cdot 21}^{-1}  & 0 \\
+0 & \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}}  & 0 & \frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}}  & 0 & 0 & 0  &  p_{\cdot 22}^{-1} 
+\end{array}\right)\!\!-\mbox{\bf 1},
+$$
+where {\bf 1} is the matrix of units.
+
+Let $T=(T_1,T_2)^{T}$, where 
+$$
+T_1=\log(n_{1\cdot 1}n_{2\cdot 2}/(n_{1\cdot 2} n_{2\cdot 1}))=
+\log n_{1\cdot 1}-\log n_{1\cdot 2} - \log n_{2\cdot 1} + \log n_{2\cdot 2}
+$$
+and 
+$$
+T_2=\log(n_{\cdot 11}n_{\cdot 22}/(n_{\cdot 12} n_{\cdot 21}))=
+\log n_{\cdot 11}-\log n_{\cdot 12} - \log n_{\cdot 21} + \log n_{\cdot 22}
+$$
+Then 
+$$
+\sqrt n (T-T_0)\Rightarrow \nu
+$$
+and $\nu=B \zeta$, where
+\arraycolsep=10pt
+$$
+B=\left(
+\begin{array}{cccccccc}
+1 & -1 & -1 & 1 & 0 & 0 & 0 & 0 \\
+0 &  0 &  0 & 0 & 1 & -1 & -1 & 1 \\ 
+\end{array}
+\right)
+$$
+Taking into account that $B${\bf 1}$B^{T}=0$ we obtain that $\nu\sim N(0,\Gamma)$
+and 
+$$
+\var(T_1)=\sum_{ij} p_{i\cdot j}^{-1}, \quad \var(T_2)=\sum_{ij} p_{\cdot ij}^{-1},
+$$
+$$
+\cov(T_1,T_2)=\sum_{ijk}(-1)^{|(i,j)|} \frac{p_{ijk}}{p_{i\cdot k}p_{\cdot jk}},
+$$
+where $|(i,j)|=\indi_{\{i\not =j\}}$. In explicit form 
+\arraycolsep=5pt
+\renewcommand{\arraystretch}{2}
+$$
+\Gamma=\left(
+\begin{array}{cc}
+\frac{1}{p_{1\cdot 1}}+\frac{1}{p_{1\cdot 2}} +\frac{1}{p_{2\cdot 1}} + \frac{1}{p_{2\cdot 2}} & 
+\mbox{
+\begin{minipage}{168pt}
+$\frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}-\frac{p_{121}}{p_{1\cdot 1}p_{\cdot 12}} +
+\frac{p_{112}}{p_{1\cdot 2}p_{\cdot 12}} - \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}}+
+\vspace{+1mm}
+\\
++\frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}-\frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}} +
+\frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}} - \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}$
+\end{minipage} 
+}
+\\
+\mbox{
+\begin{minipage}{168pt}
+$\frac{p_{111}}{p_{1\cdot 1}p_{\cdot 11}}-\frac{p_{121}}{p_{1\cdot 1}p_{\cdot 12}} +
+\frac{p_{112}}{p_{1\cdot 2}p_{\cdot 12}} - \frac{p_{122}}{p_{1\cdot 2}p_{\cdot 22}}+
+\vspace{+1mm}
+\\
++\frac{p_{221}}{p_{2\cdot 1}p_{\cdot 21}}-\frac{p_{211}}{p_{2\cdot 1}p_{\cdot 11}} +
+\frac{p_{222}}{p_{2\cdot 2}p_{\cdot 22}} - \frac{p_{212}}{p_{2\cdot 2}p_{\cdot 12}}$
+\end{minipage} 
+} 
+&  \frac{1}{p_{\cdot 11}}+\frac{1}{p_{\cdot 12}} +\frac{1}{p_{\cdot 21}} + \frac{1}{p_{\cdot 22}}
+\end{array}
+\right).
+$$
+
+{\bf Conditional approach.} In multiple testing model multiple SNP are calculated for any fixed individual, and therefore, it is reasonable to use conditional model. Consider two SNP conditional model. The parameters $p_{ij|k}$ are probabilities of different SNP combinations $(i,j)$ under $k=0$ (no disease) and under $k=1$ (disease). Let $n_1$ and $n_2$ be the numbes of non infected and infected patients respectively, $n=n_1+n_2$. The conditional multinomial distributions under given $k$ are pecified by the following tables under $k=1,2$:
+\arraycolsep=3pt
+$$
+%\scriptsize
+=\left(\begin{array}{cccc} 
+p_{11|k}(1-p_{11|k}) & -p_{11|k} p_{12|k} & -p_{11|k} p_{21|k} & -p_{11|k} p_{22|k} \\
+-p_{11|k} p_{12|k} & p_{12|k}(1-p_{12|k}) & -p_{12|k} p_{21|k} & -p_{12|k} p_{22|k} \\
+-p_{11|k} p_{21|k} & -p_{12|k} p_{21|k} & p_{21|k}(1-p_{21|k}) & -p_{21|k} p_{22|k} \\
+-p_{11|k} p_{22|k} & -p_{12|k} p_{22|k} & -p_{21|k} p_{22|k} & p_{22|k}(1-p_{22|k}) 
+\end{array}
+\right)
+$$
+and $\{n_{ij1},i,j=1,2\}$ are conditionally independent with $\{n_{ij2},i,j=1,2\}$.
+The conditional distributions in contingency tables $\tilde n_k=(n_{1\cdot k},n_{2\cdot k},n_{\cdot 1k},n_{\cdot 2k})$ we have the limit correlation matrix for $\sqrt{n_k}(\tilde n_k/n_k -\tilde p_{|k})$:
+\arraycolsep=5pt
+$$
+%\scriptsize
+\left(\begin{array}{cccc} 
+p_{1\cdot|k}(1-p_{1\cdot|k}) & -p_{1\cdot|k} p_{2\cdot |k} & p_{11|k}-p_{1\cdot|k} p_{\cdot 1|k} & p_{12|k}-p_{1\cdot|k} p_{\cdot 2|k} \\
+-p_{1\cdot|k} p_{2\cdot|k} & p_{2\cdot|k}(1-p_{2\cdot|k}) & p_{21|k}-p_{2\cdot|k} p_{\cdot 1|k} & p_{22|k}-p_{2\cdot|k} p_{\cdot 2|k} \\
+p_{11|k}-p_{1\cdot|k} p_{\cdot 1|k} & p_{21|k}-p_{\cdot 1|k} p_{2\cdot|k} & p_{\cdot 1|k}(1-p_{\cdot 1|k}) & -p_{\cdot 1|k} p_{\cdot 2|k} \\
+p_{12|k}-p_{1\cdot|k} p_{\cdot 2|k} & p_{22|k}-p_{2\cdot|k} p_{\cdot 2|k} & -p_{\cdot 1|k} p_{\cdot 2|k} & p_{\cdot 2|k}(1-p_{\cdot 2|k}) 
+\end{array}
+\right)
+$$
+and by delta method we obtain limit covariance matrix for $\sqrt{n_k}(\log\tilde n_k/n_k -\log\tilde p_{|k})$:
+$$
+%\scriptsize
+\left(\begin{array}{cccc} 
+\frac{1}{p_{1\cdot|k}} & 0 & \frac{p_{11|k}}{p_{1\cdot|k} p_{\cdot 1|k}} & \frac{p_{12|k}}{p_{1\cdot|k} p_{\cdot 2|k}} \\
+0 & \frac{1}{p_{2\cdot|k}} & \frac{p_{21|k}}{p_{2\cdot|k} p_{\cdot 1|k}} & \frac{p_{22|k}}{p_{2\cdot|k} p_{\cdot 2|k}} \\
+\frac{p_{11|k}}{p_{1\cdot|k} p_{\cdot 1|k}} & \frac{p_{21|k}}{p_{\cdot 1|k} p_{2\cdot|k}} & \frac{1}{p_{\cdot 1|k}} & 0 \\
+\frac{p_{12|k}}{p_{1\cdot|k} p_{\cdot 2|k}} & \frac{p_{22|k}}{p_{2\cdot|k} p_{\cdot 2|k}} & 0 & \frac{1}{p_{\cdot 2|k}}
+\end{array}
+\right)-\mbox{\bf 1}.
+$$
+Set $r_k=n/n_k$. Containing these objects into $T=(T_1,T_2)$ we obtain that the limit Gaussian distribution for $\sqrt n(T-T_0)$ have the following correlation matrix
+\arraycolsep=5pt
+\renewcommand{\arraystretch}{2}
+$$
+\Gamma=\left(
+\begin{array}{cc}
+\frac{r_1}{p_{1\cdot|1}}+\frac{r_2}{p_{1\cdot|2}} +\frac{r_1}{p_{2\cdot 1}} + \frac{r_2}{p_{2\cdot 2}} & 
+\mbox{
+\begin{minipage}{178pt}
+$\frac{r_1 p_{11|1}}{p_{1\cdot |1}p_{\cdot 1|1}}\!-\!\frac{r_1 p_{12|1}}{p_{1\cdot |1}p_{\cdot 2|2}}\! +\!
+\frac{r_2 p_{11|2}}{p_{1\cdot |2}p_{\cdot 1|2}}\! -\! \frac{r_2 p_{12|2}}{p_{1\cdot |2}p_{\cdot 2|2}}\!+
+\vspace{+1mm}
+\\
++\!\frac{r_1 p_{22|1}}{p_{2\cdot |1}p_{\cdot 2|1}}\!-\!
+\frac{r_1 p_{21|1}}{p_{2\cdot |1}p_{\cdot 1|1}}\!+\!
+\frac{r_2 p_{22|2}}{p_{2\cdot |2}p_{\cdot 2|2}}\!-\! \frac{r_2 p_{21|2}}{r_2 p_{2\cdot |2}p_{\cdot 1|2}}$
+\end{minipage} 
+}
+\\
+\mbox{
+\begin{minipage}{178pt}
+$\frac{r_1 p_{11|1}}{p_{1\cdot |1}p_{\cdot 1|1}}\!-\!\frac{r_1 p_{12|1}}{p_{1\cdot |1}p_{\cdot 2|2}}\! +\!
+\frac{r_2 p_{11|2}}{p_{1\cdot |2}p_{\cdot 1|2}}\! -\! \frac{r_2 p_{12|2}}{p_{1\cdot |2}p_{\cdot 2|2}}\!+
+\vspace{+1mm}
+\\
++\!\frac{r_1 p_{22|1}}{p_{2\cdot |1}p_{\cdot 2|1}}\!-\!\frac{r_1 p_{21|1}}{p_{2\cdot |1}p_{\cdot 1|1}}\!+\!
+\frac{r_2 p_{22|2}}{p_{2\cdot |2}p_{\cdot 2|2}}\!-\!\frac{r_2 p_{21|2}}{p_{2\cdot |2}p_{\cdot 1|2}}$
+\end{minipage} 
+} 
+&  \frac{r_1}{p_{\cdot 1|1}}+\frac{r_2}{p_{\cdot 1|2}} +\frac{r_1}{p_{\cdot 2|1}} + \frac{r_2}{p_{\cdot 2|2}}
+\end{array}
+\right).
+$$
+
+\noindent
+{\bf Chi-square tests.} The $\chi^2$ test statistics for independence based on two contingency tables 
+$
+X^2_k=\sum_{i=1}^2 \sum_{j=1}^2 y_{ijk}^2
+$, where 
+$$
+y_{ij1}=(n_{\cdot ij}-\hat n_{\cdot ij})/\sqrt{\hat n_{\cdot ij}} \quad \mbox{and}\quad
+y_{ij2}=(n_{i\cdot j}-\hat n_{i\cdot j})/\sqrt{\hat n_{i\cdot j}},
+$$
+$$
+\hat n_{\cdot ij}= n_{\cdot\cdot j} n_{\cdot i\cdot}/ n,
+\quad
+\hat n_{i\cdot j}= n_{i \cdot\cdot} n_{\cdot\cdot j}/ n,
+$$
+and $n=\sum_{ijk} n_{ijk}$ is the total number of observations.
+
+It is well known that the asymptotic distributions of $X^2_k$ are $\chi^2_1$; 
+the asymptotic distribution of any single statistic is represented as square of some standard normal distribution and the common asymptotic distribution of $(X^2_1,X^2_2)$ can be represented in terms of bivariate normal distribution. 
+Consider 
+$
+\tilde x=(\tilde n - n\tilde p) / \sqrt{n\tilde p}
+$
+(where the operation "/" were used component-wise). The random vector 
+$\tilde x$ \ is \ asymptotically \ normal \
+$
+\tilde x \Rightarrow \vec\kappa
+$ \
+and \ $\vec\kappa=(\kappa_{1\cdot 1},\kappa_{1\cdot 2},\kappa_{2\cdot 1},\kappa_{2\cdot 2},\kappa_{\cdot 11},\kappa_{\cdot 12},\kappa_{\cdot 21},\kappa_{\cdot 22})^{T}$ has mean zero multivariate normal distribution with 
+$$
+\var(\kappa_{i\cdot j})=1-p_{i\cdot j},
+$$
+$$
+\var(\kappa_{\cdot ij})=1-p_{\cdot ij},
+$$
+$$
+\cov(\kappa_{i\cdot j},\kappa_{i'\cdot j'})=-\sqrt{p_{i\cdot j},p_{i'\cdot j'}}\;\;\mbox{for}\;\; (i,j)\not =(i',j');
+$$
+$$
+\cov(\kappa_{\cdot ij},\kappa_{\cdot i'j'})=-\sqrt{p_{\cdot ij},p_{\cdot i'j'}}\;\;\mbox{for}\;\; (i,j)\not =(i',j');
+$$
+$$
+\cov(\kappa_{i\cdot j},\kappa_{\cdot i'j'})=
+\frac{p_{ii'j}}{\sqrt{p_{i\cdot j}p_{\cdot i'j}}}\indi_{\{j=j'\}}-\sqrt{p_{i\cdot j},p_{\cdot i'j'}}.
+$$
+In other words, the covariance matrix of $\vec \kappa$ is  $\Sigma^{\circ}=P\tilde{\Sigma} P$, where $P$ is the diagonal matrix with $(1/\sqrt{p_{1\cdot 1}},1/\sqrt{p_{1\cdot 2}},1/\sqrt{p_{2\cdot 1}},1/\sqrt{p_{2\cdot 2}},1/\sqrt{p_{\cdot 11}},1/\sqrt{p_{\cdot 12}},1/\sqrt{p_{\cdot 21}},1/\sqrt{p_{\cdot 22}})$ at the diagonal. Let 
+\renewcommand{\arraystretch}{0.9}
+$$
+\Sigma^{\circ}=
+\left(\begin{array}{cc}
+\Sigma^{\circ}_{11}  & \Sigma^{\circ}_{12}\\ 
+\Sigma^{\circ}_{21}  & \Sigma^{\circ}_{22}
+\end{array}
+\right)
+$$
+where $\Sigma^{\circ}_{ii}$ is the covariance matrix of $\vec\kappa_i$, $i=1,2$.
+Remark that $\tilde y_i=A_i \tilde x_i+\tilde w_i$, with $\tilde w_i\to_P 0$ as $n\to\infty$,
+$
+A_i=I-B_i(B^{T}_iB_i)^{-1}B^{T}_i
+$,  
+$B_i=P_i J_i$ ($P_j$ is the matrix of corresponding minor of $P$)  and $J_i$ is the Jacobi matrix of the parameterization in $i$-th table under null hypothesis, $i=1,2$ (see Cramer (1946), 30.3). Under the parameterizations by $u_1=p_{1\cdot \cdot}$, $v_1=p_{\cdot\cdot 1}$
+and $u_2=p_{\cdot 1 \cdot}$, $v_2=p_{\cdot\cdot 1}$,
+\renewcommand{\arraystretch}{1}
+$$
+J_i=\left(\begin{array}{cccc}
+v_i  & 1-v_i & -v_i & -(1-v_i) \\ 
+u_i  & -u_i   & 1-u_i& -(1-u_i) 
+\end{array}
+\right)^{T}.
+$$
+Then, the matrix $C_i=A_i\Sigma_{ii}^{\circ} A^{T}_i$ is idempotent of rank $1$ and 
+$X_i^2=z_i^2$, where $z_i=d_i^{T} y_i$ has the standard normal distribution with $d_i$ is the eigenvector corresponding to the non-zero eigenvalue of $C_i$. Then, 
+$$
+\rho=\cov(z_1,z_2)=d_1^{T}\Sigma_{12}^{\circ} d_2.
+$$
+
+{\bf Conditional approach.}
+Remark that 
+$$
+n_{11}-n_{1\cdot}n_{\cdot 1}/n=n_{12}-n_{1\cdot}n_{\cdot 2}/n=
+n_{21}-n_{2\cdot}n_{\cdot 1}/n=n_{22}-n_{2\cdot}n_{\cdot 2}/n=x
+$$
+Therefore,
+$$
+X^2=x^2((n/n_{1\cdot}n_{\cdot 1})+(n/n_{2\cdot}n_{\cdot 1})+
+(n/n_{1\cdot}n_{\cdot 2})+(n/n_{2\cdot}n_{\cdot 2})){\scriptsize =x^2 n^3/(n_{1\cdot} n_{2\cdot} n_{\cdot 1} n_{\cdot 2})}.
+$$
+Denote $n_{i}=n_{\cdot i}$ is the fixed mumber of individuals in $i$-th group, $i=1,2$.
+Then, 
+$$
+X^2=n x^2/(\hat p_{1\cdot}\hat p_{2\cdot} n_1 n_2)=
+n (n_{11} n_2 - n_{21} n_1)^2/(\hat p_{1\cdot}(1-\hat p_{1\cdot}) n_1 n_2).
+$$
+On the other hand, 
+$$
+\sqrt{n_i}(n_{1i}/n_i-p_{1|i})\Rightarrow N(0,p_{1|i}(1-p_{1|i})), \quad i=1,2 
+$$
+and $n_{11},n_{12}$ are independent random variables. Under null hypothesis   
+$$
+H_{0}:p_{1|1}=p_{1|2}=p_{1\cdot}
+$$
+and, therefore,
+$$
+X=\frac{n_2 n_{11}- n_1 n_{12}}{\sqrt{n n_1 n_2 p_{1\cdot} (1-p_{1\cdot})}}\Rightarrow N(0,1)
+$$
+as $n_1\to\infty$ and $n_2\to\infty$. 
+
+Now we consider two contingency tables and
+$$
+X_1=\frac{n_2 n_{1\cdot 1}- n_1 n_{1\cdot 2}}{\sqrt{n n_1 n_2 p_{1\cdot\cdot} (1-p_{1\cdot\cdot})}},
+\quad
+X_2=\frac{n_2 n_{\cdot 11}- n_1 n_{\cdot 12}}{\sqrt{n n_1 n_2 p_{\cdot 1\cdot} (1-p_{\cdot 1\cdot})}}
+$$
+are the corresponding markers and 
+$$
+(X_1,X_2)^{T}\Rightarrow N(0,\Sigma)),
+$$
+where 
+\renewcommand{\arraystretch}{1}
+$
+\Sigma=
+\left(
+\begin{array}{cc}
+1 & \rho \\
+\rho & 1 \\
+\end{array}
+\right)
+$ and 
+$$
+\rho=\cov(X_1,X_2)=\frac{n_2^2 \cov(n_{1\cdot 1},n_{\cdot 11})- n_1^2 \cov(n_{1\cdot 2},n_{\cdot 12})}{n n_1 n_2 \sqrt{p_{1\cdot\cdot} (1-p_{1\cdot\cdot})p_{\cdot 1\cdot} (1-p_{\cdot 1\cdot})}}=
+$$
+$$
+=\frac{n_2^2 n_1 (p_{11|1}p_{22|1}-p_{21|1}p_{12|1}) + 
+n_1^2 n_2 (p_{11|2}p_{22|2}-p_{21|2}p_{12|2})}{n n_1 n_2 \sqrt{p_{1\cdot\cdot} (1-p_{1\cdot\cdot})p_{\cdot 1\cdot} (1-p_{\cdot 1\cdot})}}=
+$$
+$$
+=\frac{n_2 (p_{11|1}p_{22|1}-p_{21|1}p_{12|1}) + 
+n_1 (p_{11|2}p_{22|2}-p_{21|2}p_{12|2})}{n \sqrt{p_{1\cdot\cdot} (1-p_{1\cdot\cdot})p_{\cdot 1\cdot} (1-p_{\cdot 1\cdot})}}.
+$$
+
+
+
+Under null hypothesis 
+
+In case of conditional design 
+
+
+\end{document}
