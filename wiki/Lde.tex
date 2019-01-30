@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Modified  :   
+% Modified  :  
 % Created   :   
 % File      :  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,7 +36,7 @@
 %\def\vv{{\bf v}}
 %\def\X{{\bf X}}
 %\def\x{{\bf x}}
-%\def\di{\displaystyle}
+\def\di{\displaystyle}
 %\def\indi{1\hspace{-1,1mm}{\rm I}}
 %\def\toi#1{\mbox{\kern+5pt \hbox to 25pt{\rightarrowfill}
 % \kern-28pt \raise-5pt   \hbox{$\scriptstyle #1 \to \infty $ }\kern+1pt }}
@@ -67,7 +67,8 @@ We consider first genetic markers of two alleles in diploid case. Then the allel
 
 
 {\bf 1: Allelic linkage disequilibrium (LDE)} is based on the alele frequencies $p_{\ssc +}$ and $p_{\ssc -}$. For any two fixed locuses  denote $p_{xy}$ is the frequency of the variant $x$ at the first locus and variant $y$ at the second one. In these notations we have the following frequency table: \vspace{.5em}\\
-%\renewcommand{\arraystretch}{.7} 
+%\renewcommand{\arraystretch}{.7} \\
+{\rule{30ex}{0ex}\bf Table 1.} \vspace{+3mm}\\
 \centerline{\begin{tabular}{c|c|c|c}
  Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"       & Total \\
 \hline      
@@ -102,8 +103,9 @@ $$
 
 {\bf 2: Composite LDE.} In the diploid organisms all the genome variants in two locuses (haplotypes) are collected in the following table: 
 \vspace{0.5em}
-\\
+
 %\renewcommand{\arraystretch}{.7} 
+{\rule{15ex}{0ex}\bf Table 2.} \vspace{+3mm}\\
 \centerline{\begin{tabular}{c|c|c|c|c|c}
  Locus $1\backslash\mbox{Locus}\; 2$       & "$++$"   & "$+-$"  &  "$-+$"   & "$--$"       & Total \\
 \hline      
@@ -120,8 +122,9 @@ Total & $p_{\ssc \bullet ++}$    & $p_{\ssc \bullet +-}$ &  $p_{\ssc \bullet -+}
 \vspace{.5em}\\
 After unification cells with identical combination we obtain 10-cells table: 
 \vspace{0.5em}
-\\
+
 %\renewcommand{\arraystretch}{.7} 
+{\rule{15ex}{0ex}\bf Table 3.}\vspace{+3mm} \\
 \centerline{\begin{tabular}{c|c|c|c|c|c}
  Locus $1\backslash\mbox{Locus}\; 2$       & "$++$"   & "$+-$"  &  "$-+$"   & "$--$" & Total   \\
 \hline      
@@ -178,6 +181,133 @@ $$
 }
 $$
 then $\Delta=\cov(\xi_A,\xi_B)$ and $r=\mbox{\bf corr}(\xi_A,\xi_B)$.
+\bigskip
+
+{\bf 3: Allelic LDE and maximum likelihood method.}  If we have haplotype data from diploid organism we can easily specify frequencies of allelelic variants in Table 1 from the count table  \\
+%\renewcommand{\arraystretch}{.7} 
+{\rule{18ex}{0ex}\bf Table 5.}\vspace{+3mm} \\
+\centerline{\begin{tabular}{c|c|c|c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$       & "$++$"   & "$+-$"  &  "$-+$"   & "$--$" & Total   \\
+\hline      
+"$++$"     & $n_{\ssc ++++}$  & \multicolumn{2}{c|}{$n_{\ssc +++-}$}  & $n_{\ssc ++--}$ & $n_{\ssc ++\bullet}$   \\
+\hline  
+"$+-$"     & $n_{\ssc +-++}$  & $n_{\ssc +-+-}$ & $n_{\ssc +--+}$ & $n_{\ssc +---}$ & $n_{\ssc +-\bullet}$  \\
+\hline  
+"$--$"     & $n_{\ssc --++}$  & \multicolumn{2}{c|}{$n_{\ssc --+-}$} & $n_{\ssc ----}$ & $n_{\ssc --\bullet}$  \\
+\hline  
+Total & $n_{\ssc \bullet ++}$    & \multicolumn{2}{c|}{$n_{\ssc \bullet +-}$} &  $n_{\ssc \bullet --}$   & $n$ \\
+\end{tabular}}
+Then the corresponding allelic counts are given in the following table
+\\
+{\rule{1ex}{0ex}\bf Table 6.} \vspace{+3mm}\\
+\centerline{\begin{tabular}{c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"   \\
+\hline      
+"$+$"     & $2n_{\ssc ++++}+n_{\ssc +++-}+n_{\ssc +-++}+n_{\ssc +-+-}$   & $2n_{\ssc ++--}+n_{\ssc +++-}+n_{\ssc +--+}+n_{\ssc +---}$  \\
+"$-$"     & $2n_{\ssc --++}+n_{\ssc +-++}+n_{\ssc +--+}+n_{\ssc --+-}$  & $2n_{\ssc ----}+n_{\ssc --+-}+n_{\ssc +-+-}+n_{\ssc +---}$   \\
+\end{tabular}} 
+and, taking account of the $2n$ total number of gametes, the corresponding frequencies are following:
+\\
+{\rule{1ex}{0ex}\bf Table 7.} \vspace{+3mm}\\
+\centerline{\small{\begin{tabular}{c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"   \\
+\hline      
+"$+$"     & $p_{\ssc ++++}+p_{\ssc +++-}/2+p_{\ssc +-++}/2+p_{\ssc +-+-}/2$   & $p_{\ssc ++--}+p_{\ssc +++-}/2+p_{\ssc +--+}/2+p_{\ssc +---}/2$  \\
+"$-$"     & $p_{\ssc --++}+p_{\ssc +-++}/2+p_{\ssc +--+}/2+p_{\ssc --+-}/2$  & $p_{\ssc ----}+p_{\ssc --+-}/2+p_{\ssc +-+-}/2+p_{\ssc +---}/2$   \\
+\end{tabular}} }
+\rule{0ex}{1.5em}
+In the case of genotypes we have only $n_{\ssc +-+-}+n_{\ssc +--+}$ instead of $n_{\ssc +-+-}$ and $n_{\ssc +--+}$. One can simplify the parametization
+\pagebreak
+
+{\rule{1ex}{0ex}\bf Table 8.} \vspace{+3mm}\\
+\centerline{\small{\begin{tabular}{c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"   \\
+\hline      
+"$+$"     & $p_{\ssc ++}=p_{\ssc ++}^*+p_{\ssc +-+-}/2$   & $p_{\ssc +-}=p_{\ssc +-}^*+p_{\ssc +--+}$/2  \\
+"$-$"     & $p_{\ssc -+}=p_{\ssc -+}^*+p_{\ssc +--+}/2$  & $p_{\ssc --}^*=p_{\ssc --}+p_{\ssc +-+-}/2$   \\
+\end{tabular}} }
+\rule{0ex}{1.5em}
+and join the observed counts to $n_{\ssc ++}^*,n_{\ssc +-}^*,n_{\ssc -+}^*,n_{\ssc --}^*,n_{\ssc +-+-}^*$ , where 
+\begin{eqnarray*}
+&& n_{++}^{*}=2n_{\ssc ++++}+n_{\ssc +++-}+n_{\ssc +-++}; \\
+&& n_{+-}^{*}=2n_{\ssc ++--}+n_{\ssc +++-}+n_{\ssc +---}; \\
+&& n_{-+}^{*}=2n_{\ssc --++}+n_{\ssc +-++}+n_{\ssc --+-}; \\
+&& n_{--}^{*}=2n_{\ssc ----}+n_{\ssc --+-}+n_{\ssc +---}; \\
+&& n_{\ssc +-+-}^*=2(n_{\ssc +-+-}+n_{\ssc +--+})
+\end{eqnarray*}
+and $ n_{\ssc ++}^{*}+ n_{\ssc +-}^{*}+n_{\ssc -+}^{*}+ n_{\ssc --}^{*}+n_{\ssc +-+-}^*=2n$. The obtaind statistical model is overparametrized; one can use the follofing relations $p_{\ssc +-+-}=p_{\ssc ++}p_{\ssc --}$ and $p_{\ssc +--+}=p_{\ssc +-}p_{\ssc -+}$ (local Hardy--Weinberg equilibrium in some sense). Then, the log liklihood function in the model can be written as follows:
+$$
+\begin{array}{rcl}
+\di
+LL(\vec p^*|\vec n^*)=n_{\ssc ++}^*\log p_{\ssc ++}^*+n_{\ssc +-}^*\log p_{\ssc +-}^*&\!+\!&\di n_{\ssc -+}^*\log p_{\ssc -+}^*+ n_{\ssc --}^*\log p_{\ssc --}^*\\ 
+&+& \di
+n_{\ssc +-+-}^* \log (p_{\ssc ++}^*p_{\ssc --}^*+p_{\ssc +-}^*p_{\ssc +-}^*). 
+\end{array}
+\eqno(A)
+$$
+The maximum likelihood can be obtained using the EM-algorithm based on the full likelihood, which is unobserved:
+\begin{eqnarray*}
+LL^{\circ}(\vec p|\vec n)&=&n_{\ssc ++}^*\log p_{\ssc ++}^*+n_{\ssc +-}^*\log p_{\ssc +-}^*+ n_{\ssc -+}^*\log p_{\ssc -+}^*+ n_{\ssc --}^*\log p_{\ssc --}^*\\ 
+&+& 
+2n_{\ssc +-+-} (\log p_{\ssc ++}+\log p_{\ssc --})+2n_{\ssc +-+-} (\log p_{\ssc +-}+\log p_{\ssc +-}). 
+\end{eqnarray*}
+The expectation step is based on 
+\begin{eqnarray*}
+E_{\vec{p}^{*}_0} (LL(\vec p|\vec n)|\vec n^*)=n_{\ssc ++}^*\log p_{\ssc ++}^*&\!\!+\!\!&n_{\ssc +-}^*\log p_{\ssc +-}^*+ n_{\ssc -+}^*\log p_{\ssc -+}^*+ n_{\ssc --}^*\log p_{\ssc --}^*\\ 
+\!\!&+\!\!& 
+n_{\ssc +-+-}^*\frac{p_{\ssc 0++}^*p_{\ssc 0--}^*}{p_{\ssc 0++}^*p_{\ssc 0--}^*+p_{\ssc 0+-}^*p_{\ssc 0-+}^*} (\log p_{\ssc ++}^*+\log p_{\ssc --}^*)\\
+\!\!&+\!\!&n_{\ssc +-+-}^*\frac{p_{\ssc 0+-}^*p_{\ssc 0-+}^*}{p_{\ssc 0++}^*p_{\ssc 0--}^*+p_{\ssc 0+-}^*p_{\ssc 0-+}^*} (\log p_{\ssc +-}^*+\log p_{\ssc +-}^*). 
+\end{eqnarray*}
+%
+{\bf The algorithm:} \\ 
+(i). One should start from some $\vec p^{*(0)}$ such that $LL(\vec p|\vec n^*)$; set $p_{\ssc ++}^{()}$ 
+and set $n=0$\\
+
+\noindent
+(ii) Loop while $\delta\geq\delta_0$; for $k$-th iteration\\
+{\it E-step:} Calculate the expected counts
+\begin{eqnarray*}
+n_{\ssc ++}^{(k)}=n_{\ssc ++}^*+n_{\ssc +-+-}^*\frac{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}}{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}+p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}\quad
+n_{\ssc --}^{(k)}=n_{\ssc --}^*+n_{\ssc +-+-}^*\frac{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}}{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}+p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}\\
+n_{\ssc +-}^{(k)}=n_{\ssc +-}^*+n_{\ssc +-+-}^*\frac{p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}+p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}\quad
+n_{\ssc -+}^{(k)}=n_{\ssc -+}^*+n_{\ssc +-+-}^*\frac{p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}{p_{\ssc ++}^{(k)}p_{\ssc --}^{(k)}+p_{\ssc +-}^{(k)}p_{\ssc -+}^{(k)}}.
+\end{eqnarray*} 
+
+\noindent
+{\it M-step:}  The expected likelihood
+$$
+E_{\vec{p}^{\;(k)}} (LL(\vec p|\vec n)|\vec n^*)=n_{\ssc ++}^{(k)}\log p_{\ssc ++}^*+n_{\ssc +-}^{(k)}\log p_{\ssc +-}^*+n_{\ssc -+}^{(k)}\log p_{\ssc -+}^*+n_{\ssc --}^{(k)}\log p_{\ssc --}^*
+$$
+is maximized by
+$$
+p_{\ssc ++}^{(k+1)}=n_{\ssc ++}^{(k)}/n_{\bullet}^{(k)},\quad
+p_{\ssc +-}^{(k+1)}=n_{\ssc +-}^{(k)}/n_{\bullet}^{(k)},\quad
+p_{\ssc -+}^{(k+1)}=n_{\ssc -+}^{(k)}/n_{\bullet}^{(k)},\quad
+p_{\ssc --}^{(k+1)}=n_{\ssc --}^{(k)}/n_{\bullet}^{(k)},
+$$
+where $n_{\bullet}^{(k)}=n_{\ssc ++}^*+n_{\ssc +-}^*+n_{\ssc -+}^*+n_{\ssc --}^*+2 n_{\ssc +-+-}^*$. 
+
+\noindent
+{\it Calculate $\delta$(normally, $\delta>0$):} 
+$$
+\delta=LL(\vec p^{\;(k+1)}|\vec n^*)-LL(\vec p^{\;(k)}|\vec n^*),
+$$
+where $LL$ is calculated by formula (A). \\
+%
+(iii). If the loop was stopped at $K$-th iteration one use the following table instead of Table 1 to obtain $D$. \\
+{\rule{10ex}{0ex} \bf Table 9.} \vspace{+3mm}\\
+\centerline{\begin{tabular}{c|c|c|c}
+ Locus $1\backslash\mbox{Locus}\; 2$   & "$+$"        & "$-$"       & Total \\
+\hline      
+"$+$"     & $p_{\ssc  ++}^{(K)}+p_{\ssc  ++}^{(K)}p_{\ssc  --}^{(K)}/2$   & $p_{\ssc  +-}^{(K)}+p_{\ssc  +-}^{(K)}p_{\ssc  -+}^{(K)}/2$   & $p_{\ssc  +\bullet}^{(K)}+p^{(K)}$ \\
+"$-$"     & $p_{\ssc  -+}^{(K)}+p_{\ssc  +-}^{(K)}p_{\ssc  -+}^{(K)}/2$   & $p_{\ssc --}^{(K)}+p_{\ssc  ++}^{(K)}p_{\ssc  --}^{(K)}/2$   & $p_{\ssc -\bullet}+p^{(K)}$ \\
+\hline
+Total & $p_{\ssc \bullet +}+ p^{(K)}$    & $p_{\ssc \bullet -}+p^{(K)}$    & $1$ \\
+\end{tabular}}
+\rule{0ex}{1.5em}\rule{10ex}{0em}
+where $P^{(K)}=\bigl(p_{\ssc  ++}^{(K)}p_{\ssc  --}^{(K)}+p_{\ssc  ++}^{(K)}p_{\ssc  --}^{(K)}\bigr)/2$. 
+
+
 \end{document}
 
 Before starting cflculations of multiple tests the input clynical data should be checked. The phenotype should be a factor of $d$-levels. Number of the phenotype levels are calculated on the preliminary stage. Denote the common variant is {"\small $+$"} and the minor variant  is {\small "$-$"}. The genotype levels for the codominant, dominant and recessive alternatives and for the allelic approach are given in the following table. 
