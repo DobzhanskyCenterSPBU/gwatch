@@ -1,0 +1,649 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified  :  
+% Created   :   
+% File      :  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt]{article}
+\usepackage{verbatim}
+\usepackage{chicago}
+%\usepackage{natbib,natbibspacing}
+\usepackage[active]{srcltx}
+\usepackage{indentfirst}
+\usepackage{amsmath, amssymb,amsfonts, euscript}
+\usepackage{rotating}
+%\usepackage{mathabx}
+\usepackage{amsbsy}
+%\usepackage{rotating}
+%\usepackage{rotate}
+%\usepackage{portland}
+%\usepackage{lscape}
+%% подгонка размера шрифта под заказ РИО
+%\renewcommand\normalsize{\fontsize{14}{16.8pt}\selectfont}
+%% {\bf--} создает толстое тире -- заказ РИО
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{color}
+%\oddsidemargin 0.0cm
+%\evensidemargin 0.0cm
+\topmargin -1.5cm
+\oddsidemargin +0.3cm
+\textwidth162mm
+\textheight235mm
+%\renewcommand{\baselinestretch}{.94}
+\renewcommand\refname{\centerline{\Large\bf References}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatletter
+\@addtoreset{equation}{section}
+%\renewcommand{\@biblabel}[1]{#1.\hfill}
+\makeatother
+%\numberwithin{equation}{section}
+\DeclareMathOperator{\diag}{diag}
+%% исправление стилевого пакета
+
+%%%%%%%%%%%%%%%%%%%%% конец описания установок
+\begin{document}
+\font\euf = eufb10 scaled 1000
+\font\eufm = eufm10 scaled 1000
+\font\eufmi = eufm9
+\font\eufms = eufm10 scaled 800
+\font\eufr = eurb10 scaled 1000
+\font\eufmr = eurm10 scaled 800
+\font\eus = eusb10 scaled 1000
+\abovedisplayskip=5pt plus 3pt minus 4pt
+\belowdisplayskip=5pt plus 3pt minus 3pt
+\rm
+\def\Beta{{\cal B}}
+\def\A{{\cal A}}
+\def\a{\mbox{\bf a}}
+\def\abi{\mbox{\textbf{\textit a}}}
+\def\abis{\mbox{\textbf{\scriptsize\textit a}}}
+\def\as{\mbox{\small\bf a}}
+\def\av{\vec{a}}
+\def\AA{\mbox{\eus A}}
+\def\Aa{\mbox{\eufm A}}
+\def\Ab{\mbox{\bf A}}
+\def\Abi{\mbox{\textbf{\textit A}}}
+\def\Abs{\mbox{\textbf{\scriptsize A}}}
+\def\Abis{\mbox{\textbf{\scriptsize\textit A}}}
+\def\alphab{{\boldsymbol \alpha}}
+\def\B{{\cal B}}
+\def\BB{{\eus B}}
+\def\Bb{\mbox{\bf B}}
+\def\Bbi{\mbox{\textbf{\textit B}}}
+\def\Bf{\mbox{\eufm B}}
+\def\Bfi{\mbox{\eufmi B}}
+\def\Bi{\mbox{Bi}}
+\def\Bbis{\mbox{\textbf{\scriptsize\textit B}}}
+\def\bbi{\mbox{\textbf{\textit b}}}
+\def\bbis{\mbox{\textbf{\scriptsize\textit b}}}
+\def\betab{{\boldsymbol \beta}}
+\def\b{\mbox{\bf b}}
+\def\bs{\mbox{\small\bf b}}
+\def\Chi{\mbox{\eufm X}}
+\def\Chis{\mbox{\eufms X}}
+\def\C{\mbox{\bf C}}
+%\def\Cb{\mbox{\rm C}\kern-.45em\hbox{\rule{.03em}{1.5ex}}\kern+.45em}
+\def\Cb{\mbox{\bf C}}
+\def\Cbm{\mbox{\scriptsize\bf C}}
+\def\Cbi{\mbox{\textbf{\textit C}}}
+\def\cb{\mbox{\bf c}}
+\def\cbi{\mbox{\textbf{\textit c}}}
+\def\c{\mbox{\bf c}}
+\def\CC{{\eus C}}
+\def\Cc{\mbox{\eufm С}}
+\def\Dbi{\mbox{\textbf{\textit D}}}
+\def\Dd{\mbox{\eufm D}}
+\def\DD{\mbox{\cal D}\,}
+%\def\D{\mbox{\bf D}\,}
+\def\D{{\mathbb D}}
+\def\Db{\mbox{\bf D}}
+\def\DE{\mbox{DE}\,}
+\def\Deltab{{\boldsymbol \Delta}}
+\def\db{\mbox{\bf d}} %boldmath
+\def\dbs{\mbox{\bf\scriptsize d}}
+\def\dn{\mbox{d}}
+\def\dns{\mbox{\scriptsize d}}
+%\def\dim{{\mbox{dim}}}
+%\def\E{\mbox{\bf E}\,}
+\def\E{{\mathbb E}}
+\def\Eb{\mbox{\bf E}\,}
+\def\Ex{\mbox{E}\,}
+\def\Exp{\mbox{E}}
+\def\e{\mbox{\textbf{\textit e}}}
+\def\etab{{\boldsymbol \eta}}
+\def\epsilonb{\mbox{\textbf{\textit e}}}
+%\def\epsilonb{{\boldsymbol \varepsilon}}
+\def\F{{\mathbb F}}
+\def\Fa{{\eus F}}
+\def\Ff{\mbox{\eufm F}}
+\def\Ffi{\mbox{\eufmi F}}
+\def\Ft{{\bf A}}
+\def\Fb{\mbox{\bf F}}
+\def\fb{{\bf f}}
+\def\fbi{\mbox{\textbf{\textit f}}}
+\def\Fc{{\cal F}}
+\def\G{{\bf G}}
+\def\g{{\mbox{\bf g}}}
+\def\Gbi{\mbox{\textbf{\textit G}}}
+\def\gbi{\mbox{\textbf{\textit g}}}
+\def\Gammab{{\boldsymbol \Gamma}}
+\def\gammab{{\boldsymbol \gamma}}
+\def\gm{{\mbox{\bf\small g}}}
+\def\Geom{\mbox{Geom}}
+\def\H{{\bf H}}
+\def\Hbi{\mbox{\textbf{\textit H}}}
+\def\h{{\mbox{\bf h}}}
+\def\hbi{\mbox{\textbf{\textit h}}}
+\def\hm{{\mbox{\bf\small h}}}
+\def\I{{\mathbb I}}
+\def\Ib{\mbox{\bf I}}
+\def\Ibs{\mbox{\textbf{\scriptsize I}}}
+\def\Ibi{\mbox{\textbf{\textit I}}}
+\def\ib{\mbox{\bf i}}
+\def\jb{\mbox{\bf j}}
+\def\ibm{\mbox{\bf\small i}}
+\def\jbm{\mbox{\bf\small j}}
+\def\ibsm{\mbox{\bf\tiny i}}
+\def\jbsm{\mbox{\bf\tiny j}}
+\def\ibs{\mbox{\bf\scriptsize i}}
+\def\jbs{\mbox{\bf\scriptsize j}}
+\def\kl{\guillemotleft}
+\def\kr{\guillemotright}
+\def\K{{\cal K}}
+\def\kappab{{\boldsymbol \kappa}}
+\def\Kb{\mbox{\bf K}}
+\def\Kbi{\mbox{\textbf{\textit K}}}
+\def\Kbis{\mbox{\textbf{\scriptsize\textit K}}}
+\def\k{{\cal k}}
+\def\kv{\vec{k}}
+\def\Lin{{\cal L}}
+\def\l{\mbox{\bf l}}
+\def\Lambdab{{\boldsymbol \Lambda}}
+\def\LLRT{{\mathbb L}\hspace{-.12em}\mbox{R}}
+\def\LRT{{\Lambda\hspace{-.62em}\Lambda\hspace{-.44em}\hbox{\raise+5.8pt\hbox{\rule{.3mm}{.5mm}}}\;}}
+\def\lambdab{{\boldsymbol \lambda}}
+\def\m{\mbox{\bf m}}
+\def\lb{\mbox{\bf l}}
+\def\mb{\mbox{\bf m}}
+\def\mbm{\mbox{\bf\small m}}
+\def\mbsm{\mbox{\bf\tiny m}}
+\def\mbs{\mbox{\bf\scriptsize m}}
+\def\mbi{\mbox{\textbf{\textit m}}}
+\def\lbs{\mbox{\bf\scriptsize l}}
+\def\mub{{\boldsymbol \mu}}
+\def\mbs{\mbox{\bf\scriptsize m}}
+\def\N{{\cal N}}
+\def\Nbb{\mbox{\textbf{\textit N}}}
+\def\n{\vec{n}}
+\def\nb{\mbox{\bf n}}
+\def\nstr{\vec{n^*}}
+\def\Nb{{\mathbb N}}
+\def\Nbi{\mbox{Nb}}
+\def\Nm{{\rm I\kern-.17em N}}
+\def\nub{{\boldsymbol \nu}}
+\def\Ob{O}
+\def\Om{o}
+\def\Omegab{{\boldsymbol \Omega}}
+\def\pbi{\mbox{\textbf{\textit p}}}
+\def\phib{{\boldsymbol \phi}}
+\def\Psib{{\boldsymbol \Psi}}
+\def\psib{{\boldsymbol \psi}}
+\def\psibs{{\scriptstyle\boldsymbol \psi}}
+\def\Pp{{\mathscr{P}}}
+\def\Pb{\mbox{\bf P}}
+\def\p{{\bf p}}
+\def\Pois{\mbox{P}}
+\def\Qb{\mbox{\bf Q}}
+\def\qbi{\mbox{\textbf{\textit q}}}
+\def\Rb{{\mathbb R}}
+\def\Rm{{\rm I\kern-,25em R}}
+\def\R{\mbox{\bf R}}
+\def\Rbi{\mbox{\textbf{\textit R}}}
+\def\Rbs{\mbox{\textbf{\scriptsize R}}}
+\def\r{\mbox{\bf r}}
+\def\U{{\bf U}}
+\def\s{\mbox{\bf s}}
+\def\sb{\mbox{\bf s}}
+\def\Sb{\mbox{\bf S}}
+\def\Sigmab{{\boldsymbol \Sigma}}
+\def\Sr{\mbox{S}}
+\def\Srm{\mbox{\scriptsize S}}
+\def\sr{\mbox{s}}
+\def\srm{\mbox{\scriptsize s}}
+\def\sbs{\mbox{\bf\scriptsize s}}
+\def\Ss{{\cal S}}
+\def\Tbi{\mbox{\textbf{\textit T}}}
+\def\Tbis{\mbox{\textbf{\scriptsize\textit T}}}
+\def\thetab{{\boldsymbol \theta}}
+\def\Trr{\mbox{T}}
+\def\Trm{\mbox{\scriptsize T}}
+\def\T{\mbox{\it\hspace{-2pt}\scriptsize Т}}
+\def\Ts{\mbox{\it\hspace{-2pt}\tiny Т}}
+%\def\T{\t}
+\def\Tb{\mbox{\bf T}}
+\def\t{\mbox{\textbf{\textit t}}}%{\mbox{\bf t}}
+\def\tbi{\mbox{\textbf{\textit t}}}
+\def\tbis{\mbox{\textbf{\scriptsize\textit t}}}
+\def\tv{\vec{t}}
+\def\Ub{\mbox{\textbf{U}}}
+\def\Ubi{\mbox{\textbf{\textit U}}}
+\def\ubi{\mbox{\textbf{\textit u}}}
+\def\ubis{\mbox{\textbf{\scriptsize\textit u}}}
+\def\Upsilonb{{\boldsymbol \Upsilon}}
+\def\V{\mbox{\bf V}}
+\def\Vb{\mbox{\bf V}}
+\def\v{\mbox{\bf v}}
+\def\vbi{\mbox{\textbf{\textit v}}}
+\def\vn{\mbox{\rm v}}
+\def\vns{\mbox{\scriptsize v}}
+\def\vbs{\mbox{\bf\scriptsize v}}
+\def\W{{\bf W}}
+\def\Wb{\mbox{\bf W}}
+\def\Wbi{\mbox{\textbf{\textit W}}}
+\def\Wbis{\mbox{\textbf{\scriptsize\textit W}}}
+\def\x{\vec{x}}
+\def\xib{{\boldsymbol \xi}}
+\def\xv{\vec{x}}
+\def\xb{\mbox{\textbf{\textit x}}}%{\mbox{\bf x}}
+\def\Yb{\mbox{\bf Y}}
+\def\Xbi{\mbox{\textbf{\textit X}}}
+\def\Xbis{\mbox{\textbf{\scriptsize\textit X}}}
+\def\Ybi{\mbox{\textbf{\textit Y}}}
+\def\Ybis{\mbox{\textbf{\textit\tiny Y}}}
+\def\Ybis{\mbox{\textbf{\textit{\scriptsize Y}}\hspace{-3pt}}}
+\def\Y{\vec{Y}}
+\def\y{\vec{y}}
+\def\yb{\mbox{\textbf{\textit y}}}
+\def\ybi{\mbox{\textbf{\textit y}}}
+\def\Xx{\mbox{\eufm X}}
+\def\Xxs{\mbox{\eufms X}}
+\def\Xb{\mbox{\bf X}}
+\def\Xbm{\mbox{\boldmath $X$}}
+\def\xbi{\mbox{\textbf{\textit x}}}
+\def\X{\vec{X}}
+\def\Yy{\mbox{\eufm Y}}
+\def\Zb{\mbox{\bf Z}}
+\def\zb{\mbox{\bf z}}
+\def\Zbi{\mbox{\textbf{\textit Z}}}
+\def\zbi{\mbox{\textbf{\textit z}}}
+\def\z{\mbox{\textbf{\textit z}}}%{\mbox{\bf z}}
+\def\zm{\mbox{\textbf{\textit\small z}}}%\zm{{\mbox{\bf\small z}}}
+\def\zp{\hspace{-1pt},}
+\def\zero{\mbox{\bf 0}}
+\def\zetab{{\boldsymbol \zeta}}
+\def\Z{{\mathbb Z}}
+%\def\Zb{{\rm Z\kern-.5em Z \kern-.2em
+%\raise+.5ex \hbox{\rule{.1em}{.05ex}}\kern-.55em
+%\raise+1.1ex\hbox{\rule{.1em}{.05ex}}\kern+.65em}}
+\def\Zm{\mbox{\scriptsize \Zb}}
+\def\arctg{\mbox{\rm arctg}\,}
+\def\Ass{\mbox{\bf Asi}}
+\def\bl{\hspace{-2pt} > \hspace{-2pt}}
+\def\br{\hspace{-2pt} \geq \hspace{-2pt}}
+\def\cov{\mbox{\bf cov}}
+\def\Cov{{\mathbb C}\hspace{-0.1ex}\mbox{\bf ov}}
+\def\ctg{\mbox{\rm ctg}\,}
+\def\dk#1{{\textit{\textbf{Доказательство#1.}}}}
+\def\df{{\; \buildrel \rm def \over= \;}}
+\def\deq{{\buildrel \rm d \over=}}
+\def\di{\displaystyle}
+%\def\edk{\\ \hbox{\kern+120mm} \raise+3mm \hbox{\rule{2mm}{2mm}}}
+\def\edis{{\; \buildrel \rm d \over= \;}}
+\def\edk{\hbox{\rule{2mm}{2mm}}\medskip\smallskip}
+\def\eex{\hfill{$\blacktriangledown$}}
+\def\etoi#1{\hbox{\kern+5pt \raise+2pt
+ \hbox to 25pt{\rightarrowfill }\kern-25pt
+ \raise-2pt \hbox to 25pt{\rightarrowfill }
+ \kern-28pt \raise-6pt \hbox{$\scriptstyle #1 \to \infty$ }
+ \kern-5pt}}
+\def\exp{\mbox{\rm exp}}
+\def\Exc{\mbox{\bf Ex}}
+\def\indi{1\hspace{-1,1mm}{\rm I}}
+\def\intl#1#2{\int\limits_{#1}^{#2}}
+\def\itg#1#2#3#4{{\int\limits_#1^#2 G_{m,#3}^{(r)}(#4) dF_{#3}(#4)}}
+\def\itgf#1#2#3#4{{\int\limits_#1^#2 G_{m,#3}^{(r)}(#4) dF_{i_0}(#4)}}
+\def\logit{\mbox{logit}}
+\def\ln{\mbox{\rm ln}}
+\def\lns{\mbox{\rm\scriptsize ln}}
+\def\lni{\mbox{\scriptsize\rm ln}}
+\def\mdbbl#1{\Bigl|#1\Bigr.}
+\def\mdbbr#1{\Bigl.#1\Bigr|}
+%\def\mdl#1{{\mid #1\mid}}
+\def\mdl#1{{\left| #1\right|}}
+\def\mdlb#1{{\bigl| #1\bigr|}}
+\def\mdlbb#1{{\Bigl| #1\Bigr|}}
+\def\mdlbbb#1{{\biggl| #1\biggr|}}
+\def\men{\hspace{-2pt} < \hspace{-2pt}}
+\def\midbb{\Bigm|}
+\def\mn{\hspace{-2pt} - \hspace{-2pt}}
+\def\mnn{\hspace{-1pt} - \hspace{-1pt}}
+\def\mr{\hspace{-2pt} \leq \hspace{-2pt}}
+\def\nin{\;\vspace{+2pt}{\in\kern-.75em/}\vspace{+2pt}\;}
+\def\nr{\hspace{-2pt} \neq \hspace{-2pt}}
+\def\ob{\hspace{-2pt} \cup \hspace{-2pt}}
+\def\odds{\mbox{\rm odds}}
+\def\pv{\vec{p}}
+\def\per{\hspace{-2pt} \cap \hspace{-2pt}}
+\def\pl{\hspace{-2pt} + \hspace{-2pt}}
+\def\pll{\hspace{-1pt} + \hspace{-1pt}}
+\def\pr{\hspace{-2pt} \in \hspace{-2pt}}
+\def\prodl#1#2#3{\di\prod\limits_{#1=#2}^{#3}}
+\def\probit{\mbox{probit}}
+\def\rv{\hspace{-2pt} = \hspace{-2pt}}
+\def\rvo#1{{\;\buildrel #1  \over=\; }}
+\def\rk{\mbox{\bf rk}}
+%\def\msection#1{\subsection{\hspace{-1em}\ #1}}
+%\def\subsection#1{\subsection{\hspace{-1em}\ #1}}
+\def\sign{\mbox{\rm sign}}
+\def\mes{{\rm \bf mes}}
+\def\sm#1#2#3{{\sum\limits_{\scriptstyle S\subset#1\atop\mdl S=#2}
+ \prod\limits_{j\in S}F_j(#3)
+ \prod\limits_{j\in#1\backslash S}\overline{F}_j(#3)}}
+\def\suml#1#2#3{\di\sum\limits_{#1=#2}^{#3}}
+\def\sumlt#1#2#3{\di{\sum\limits_{#1=#2}^{#3}}_{\raise 2ex
+\hbox{\scriptsize\kern-.6em \it T}}}
+\def\sumll#1#2{\di\sum\limits_{#1}^{#2}}
+\def\srs{\scriptsize}
+\def\scr{\scriptstyle}
+\def\tns{\tiny}
+\def\til#1{\tilde{#1}}
+\def\timeh{\raise+.5ex\hbox{$\times$}}
+%\raise-.7ex\hbox{}}
+\def\tg{\mbox{\rm tg}\,}
+\def\toi#1{\mbox{\kern+5pt \hbox to 35pt{\rightarrowfill}
+ \kern-38pt \raise-5pt   \hbox{$\scriptstyle #1 \to \infty $ }\kern+1pt }}
+\def\too#1{\mbox{\kern+3pt \hbox to 23pt{\rightarrowfill}
+ \kern-23pt \raise-5pt   \hbox{$\scriptstyle #1 \to 0 $} \kern+0pt }}
+\def\tow{\stackrel{W}{\rightarrow}} 
+\def\tr{\mbox{\bf tr}}
+\def\ts{\textstyle}
+\def\um{\hspace{-1pt} \cdot \hspace{-1pt}}
+\def\vr#1{{#1=1,2,\ldots,n}}
+\def\Var{{\mathbb V}\hspace{-0.2ex}\mbox{\bf ar}}
+\def\var{{\mathbb D}}
+
+\def \aaa{\text{\bf \bigl( \farc{F(t_n)}p \bigr)^{k} \bigl( \farc{1-F(t_n)}q \bigr)^{n-k-1}}}
+%$\def \щ{\def}
+\def\ls{\ldots}
+%$\def \ш{$}
+%\def \х{характеристическ. функци}
+%\def \D{\mbox{\bf D}}
+%\def \M{\mbox{\bf M}}
+\def \P{{\mathbb P}}
+\def \ig{\emptyset}
+\def \ii{\begin{array}{c}}
+\def \ij{\end{array}}
+\def\1{\mbox{\bf 1}}
+%\def \rt{\frac{\partial}{\partial}}
+%\def\yu{Cатистик}
+%\def\Yu{Статистик}
+\def \wt{\widehat}
+\def \wl{\widetilde}
+%\renewcommand{\chaptername}{{\bf Глава}}
+\def \beq{\begin{equation}}
+\def \eeq{\end{equation}}
+%\pagestyle{myheadings}
+%********************************************************
+\begin{center}
+{\Large\bf Linear regression model: classical approach}
+\end{center}
+
+\noindent
+{\it The observed data:} (i). Any single observation is given by $(Y,\zbi)$\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item[]
+ $Y$ is the observed variable
+\item[]
+$\zbi=(z_0,\ldots,z_k)$ is  the covariate
+\item[]
+$z_0\in\{0,1,2\}$ is assumed to be a genotype
+\end{itemize} 
+The distribution of $Y$ is assumed to be a normal; any element $z_i$ of the covariate $\zbi$ can be\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item[]
+nominal (categorical,factor)
+\item[]
+ordinal 
+\item[]
+quantitative (numeric)
+\end{itemize} 
+Covariates:\vspace{-3mm}
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item[]
+the covariate $z_0\in \{0,1,2\}$ (genotype) is assumed to be of special ordinal/nominal type (object "genotype")
+\item[]
+type of each other covariate should be specified by user or selected by default
+\end{itemize} 
+By default\vspace{-3mm}
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item[]
+a binary categorical covariate (2 levels) is assumed to be a nominal, and should be converted to $0$ and $1$ levels;
+\item[]
+a categorical covariate having 3-8 levels is assumed to be an ordinal;
+\item[]
+other covariates are assumed to be numeric.
+\end{itemize}
+
+\noindent
+(ii). The observed data is a sample $(\Ybi,\zb)$:\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.5em}
+\item[]
+$\Ybi=(Y_1,\ldots,Y_n)'$ is $n\times 1$-vector
+\item[]
+$\zb=(\zbi_1,\ldots,\zbi_n)$, $\zbi_{i}=(z_{i,0},\ldots,z_{i,k})$  are the covariates
+\item[]
+$Y_1,\ldots,Y_n$ are conditionally independent given $\zb$
+\item[]
+$\Var(Y|\zbi)=\sigma^2$ for any $\zbi$ ($\Var(Y_1)=\ldots =\Var(Y_n)$)
+\end{itemize}
+\noindent
+{\it Linear regression model:} (i). Regressor $\Xbi:\Rb^k\to\Rb^m$; $\Xbi(\zbi)$ is defined for any observation \\
+(ii). Linear regression model for single observation 
+$$
+\E_{\theta}(Y|\zbi)=\Xbi(\zbi)'\betab
+\vspace{-3mm}
+$$
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$\betab=(\beta_1,\ldots,\ldots\beta_m)'$ is $m\times 1$-vector of parameters
+\item[]
+$Y\sim \N(\Xbi(\zbi)'\betab,\sigma)$, where $\sigma$ is the nuisance variance parameter 
+\item[]
+$\thetab=(\beta_1,\ldots,\ldots\beta_m,\sigma)$ is the full parameter of the model
+\end{itemize}
+The linear regression model is determined by formula 
+$$
+Y\sim g(z_0)+f(\zbi^*),\quad \zbi^*=(z_1,\ldots,z_k),
+\vspace{-2mm}
+$$
+where $g\in \{CD,D,R,A\}$ is the genetic model and $f$ is the covariate term
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$f(\zbi^*)=f_1(\zbi^*)+\ldots+f_r(\zbi^*)$, 
+\item[]
+$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1\}$ is of multiple regression type \\
+$f_i(\zbi^*)=z_{s_i}^{r_i}$, where $r_i\in \{2,3,\ldots\}$ and $s_i\in\{1,\ldots,k\}$ is of polynomial type (not available for factors)
+\end{itemize}
+The parameter\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+The intercept parameter is included into the model by default
+\item[]
+The covariate $z_0$ generates\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+single parameter if $g\in\{D,R,A\}$ (difference with the baseline level $z_0=0$)
+\item[]
+vector of length two if $g=${\it CD} (main effect with respect to the baseline level $z_0=0$)
+\end{itemize}
+\item[]
+Term $f(\zbi^*)$ should be transformed to $\sum_{\kappa\in K} z_{\kappa}$, where $\kappa$ is a multi-index; $K$ is a (ordered) set of subsets of $\{1,\ldots,k\}$
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+the term $f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$ generates $K_i$ is the set of non empty subsets of $\{r_{k,i}:r_{k,i}=1\}$
+\item[]
+then $K=\cup_{i=1}^r K_i$
+\item[]
+the elements of $K$ should be sorted ($\kappa$'s of smaller length should be sorted before $\kappa$'s of larger length)
+\end{itemize}
+We associate a number $d_{\kappa}$ to each index $\kappa\in K$ \vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$d_i=1$ if $z_i$ is numeric or ordinal ($\kappa=i$)
+\item[]
+$d_i=r$ for $z_i^r$ 
+\item[]
+$d_i+1$ is a number of levels of the covariate $z_i$, if $z_i$ is a factor ($\kappa=i$)
+\item[]
+in general case $d_{\kappa}=\prod_{i\in\kappa} d_i$. 
+\end{itemize}
+The total length of the nuisance (part corresponding to $f$) parameter is $d=\sum_{\kappa\in K} d_{\kappa}$. 
+\end{itemize}
+
+The regressor\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+The regressor is a vector $(x_0,x_{K})$ such that \vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$x_0=(1,z_0)$ if  $g\in\{D,R,A\}$
+\item[]
+$x_0=(1,\indi_{\{z_0=1\}},\indi_{\{z_0=2\}})$ if  $g=${\it "CD"}   (Model for TEST)
+\item[]
+$x_0=(1,z_0)$ if  $g=${\it "CD"}   (Model for QAS)
+\item[]
+$x_0=1$ (Model for base)
+\end{itemize}
+We use the ordered set $K$ to create regressors for nuisance parameter \vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$x_i=z_i$ if $z_i$ is numeric or ordinal ($\kappa=i$)
+\item[]
+$x_i=(z_i,z_i^2,\ldots,z_i^r)$ for $z_i^r$ 
+\item[]
+$x_i$ is a vector of length $d_i$ of $\{0,1\}$ with $1$ on $j$-th position if $z_i=a_{j+1}$, $a_j$ is the $j$-th level of $z_i$ (for example $(0,0,1,0,0)$). 
+\item[]
+in general case $ x_{\kappa}=\mbox{as.vector}(\otimes_{i\in\kappa} x_i)$, where $\otimes$ is the outer product (vector should be sorted in a proper order). 
+\item[]
+the regressor $x_{K}$, which corresponds to the nuisance parameter is obtained by merging $x_{\kappa}$ over $\kappa\in K$ in the proper order. 
+\end{itemize}
+\end{itemize}
+(iii). Linear regression model for the observed data
+$$
+\E(\Ybi|\zb)=\Xb'\betab
+\vspace{-3mm}
+$$
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$\Xb=(\Xbi(\zbi_1),\ldots,\Xbi(\zbi_n))$ is the $m\times n$-matrix of regressors
+\item[]
+$\betab$ is the $1\times m$-vector of parameters
+\item[]
+assumption $\Ybi\sim \N(\Xb'\betab,\sigma^2 \Ib_n)$, $\Ib_n$ is the identity matrix 
+\item[]
+the matrix $\Xb=(\Xb'_g,{\Xb^*}')'$, where $\Xb_g$ contains the regressors related to $g$ and $\Xb^*$ are the last $d$ rows of the matrix $\Xb$
+\end{itemize}
+Nuisance parameter reduction\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+the parameter related to $(\zbi_1,\ldots,\zbi_k)$ is not a subject of our interests
+\item[]
+If the matrix $\Xb^*$, which contains the last $d$ rows of the matrix $\Xb$, is not of the full rank $d$, we reduce the matrix $\Xb^*$ to $\Xb^{\circ}$ by choosing only basis vectors of the linear space generated by rows of the matrix $\Xb^*$
+\item[]
+The reduced matrix $\Xb$ is determined by changing block $\Xb^*$ to $\Xb^{\circ}$ in the matrix $\Xb$
+\end{itemize}
+{\it QAS and P-value.} Under $\Xb\Xb'$ is of full rank (positively definite), the least square estimator (LSE) is given by 
+$$
+\widehat\betab=(\Xb\Xb')^{-1}\Xb\Ybi
+$$
+The sum of squares
+$$
+S(\betab)=\|\Ybi-\Xb'\betab\|^2=(\Ybi-\Xb'\betab)'(\Ybi-\Xb'\betab)
+$$
+{\it Notatons} ("Model for QAS" is equal to "Model for TEST" if $g=${\it A,D,R"}): 
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+$\Xb$/$\Xb_q$/$\Xb_0$ is the regressors in the "Model for TEST"/"Model for QAS"/"Baseline model" respectively
+\item[]
+$\widehat\betab$/$\widehat\betab_q$/$\widehat\betab_0$ is the LSE from the "Model for TEST"/"Model for QAS"/"Baseline model" respectively
+\item[]
+$S(\widehat\betab)$/$S_q(\widehat\betab_q)$/$S_0(\widehat\betab_0)$ is the sums of squares from the "Model for TEST"/"Model for QAS"/ "Baseline model" respectively
+\end{itemize}
+{\it The algorithm} \\
+The input data contain: "phenotype"(numeric vector), "genotype","covariates"(matrix),"covariate types"(vector) and "formula"
+ \vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[(i)]
+Create regressors related to covariates $\Xb^*$
+\item[(ii)]
+Check that the rank of the matrix $\Xb^*$ is full\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+if the rank of matrix $\Xb^*$ is not equal to $d$,  apply nuisance parameter reduction $\Xb^*\!:=\!\Xb^{\circ}$. 
+\end{itemize}
+\item[(iii)]
+Loop by genotypes
+\item[]
+Create regressors $\Xb_g$ for "Model for TEST", for "Model for QAS" and for "Baseline model"
+\item[]
+Check that the rank of the matrix $\Xb_g$ related to $g$ is maximal ($2$ if $g=${\it A,D,R"} or 3 if $g=${\it CD"})
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item[]
+if the rank of the matrix $\Xb_g$ in the "Model for TEST" is not maximal, report $qas[i]=NA$ and $pv[i]=NA$ 
+\item[]
+otherwise, continue
+\end{itemize}
+\item[]
+Create matrix $\Xb$ by merging $\Xb_g$ and $\Xb^*$
+\item[]
+If the rank of matrix $\Xb$ is not equal to its number of rows use nuisance parameter reduction to whole $\Xb$ ($\Xb_g$ should not be changed) 
+\item[]
+Fit the "Model for QAS"
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.1em}
+\item[]
+assign $qas[i]$ the coefficient, related to $\zbi_0$ (second element of the vector $\widehat\betab$)
+\end{itemize}
+\item[]
+Fit the "Model for TESTS" and the "Baseline model" 
+\vspace{-2mm}
+\begin{itemize}
+\setlength\itemsep{-0.1em}
+\item[]
+$SS_e=S(\widehat\betab)$; $\overline{SS}_e=SS_e/\mbox{df}$, where df$=n-\rk(\Xb)$
+\item[]
+$SS_h=S_0(\widehat\betab_0)-SS_e$; $\overline{SS}_h=SS_H/\mbox{df}_h$, where df$_h=2$ if $g=$"{\it CD}" and df$_h=1$ if $g=$"{\it A,D,R}"
+\item[]
+$\F=\overline{SS}_h/\overline{SS}_e$ is the $F$-statistic, which has under null hypothesis $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$-distribution
+\item[]
+assign $pv[i]:=1-F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}(\F)$, where $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$ is the distribution function of the Fisher--Snedecor distribution $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$
+\end{itemize}
+\item[(iii)]
+Return the vectors $pv$ and $qas$. 
+\end{itemize}
+\end{document}
