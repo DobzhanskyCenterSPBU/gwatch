@@ -469,8 +469,9 @@ where $g\in \{CD,D,R,A\}$ is the genetic model and $f$ is the covariate term
 \item[]
 $f(\zbi^*)=f_1(\zbi^*)+\ldots+f_r(\zbi^*)$, 
 \item[]
-$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1\}$ is of multiple regression type \\
-$f_i(\zbi^*)=z_{s_i}^{r_i}$, where $r_i\in \{2,3,\ldots\}$ and $s_i\in\{1,\ldots,k\}$ is of polynomial type (not available for factors)
+$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1,\ldots\}$ is of multiple regression type 
+\item[]
+warning: values $r_{ki}\geq 2$ are not available for factors
 \end{itemize}
 The parameter\vspace{-2mm}
 \begin{itemize}
