@@ -387,77 +387,79 @@
 \begin{center}
 {\Large\bf Linear regression model: classical approach}
 \end{center}
-
 \noindent
-{\it The observed data:} (i). Any single observation is given by $(Y,\zbi)$\vspace{-2mm}
+\subsection*{The observed data}
+\noindent (i). Any single observation is given by $(Y,\zbi):$\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.5em}
-\item[]
- $Y$ is the observed variable
-\item[]
-$\zbi=(z_0,\ldots,z_k)$ is  the covariate
-\item[]
-$z_0\in\{0,1,2\}$ is assumed to be a genotype
+\item[---]
+ $Y$ is the observed variable;
+\item[---]
+$\zbi=(z_0,\ldots,z_k)$ is  the covariate;
+\item[---]
+$z_0\in\{0,1,2\}$ is assumed to be a genotype.
 \end{itemize} 
 The distribution of $Y$ is assumed to be a normal; any element $z_i$ of the covariate $\zbi$ can be\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.5em}
-\item[]
-nominal (categorical,factor)
-\item[]
-ordinal 
-\item[]
-quantitative (numeric)
+\item[---]
+nominal (\textit{alias} categorical or factor);
+\item[---]
+ordinal;
+\item[---]
+quantitative (\textit{alias} numeric).
 \end{itemize} 
 Covariates:\vspace{-3mm}
 \begin{itemize}
 \setlength\itemsep{-0.5em}
-\item[]
-the covariate $z_0\in \{0,1,2\}$ (genotype) is assumed to be of special ordinal/nominal type (object "genotype")
-\item[]
-type of each other covariate should be specified by user or selected by default
+\item[---]
+the covariate $z_0\in \{0,1,2\}$ (genotype) is assumed to be of special ordinal/nominal type (object ``genotype");
+\item[---]
+type of each other covariate should be specified by user or selected by default;
 \end{itemize} 
 By default\vspace{-3mm}
 \begin{itemize}
 \setlength\itemsep{-0.5em}
-\item[]
+\item[---]
 a binary categorical covariate (2 levels) is assumed to be a nominal, and should be converted to $0$ and $1$ levels;
-\item[]
+\item[---]
 a categorical covariate having 3-8 levels is assumed to be an ordinal;
-\item[]
+\item[---]
 other covariates are assumed to be numeric.
 \end{itemize}
-
 \noindent
 (ii). The observed data is a sample $(\Ybi,\zb)$:\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.5em}
-\item[]
-$\Ybi=(Y_1,\ldots,Y_n)'$ is $n\times 1$-vector
-\item[]
-$\zb=(\zbi_1,\ldots,\zbi_n)$, $\zbi_{i}=(z_{i,0},\ldots,z_{i,k})$  are the covariates
-\item[]
-$Y_1,\ldots,Y_n$ are conditionally independent given $\zb$
-\item[]
-$\Var(Y|\zbi)=\sigma^2$ for any $\zbi$ ($\Var(Y_1)=\ldots =\Var(Y_n)$)
+\item[---]
+$\Ybi=(Y_1,\ldots,Y_n)'$ is $(n\times 1)$-vector;
+\item[---]
+$\zb=(\zbi_1,\ldots,\zbi_n)$, $\zbi_{i}=(z_{i,0},\ldots,z_{i,k})$  are the covariates;
+\item[---]
+$Y_1,\ldots,Y_n$ are conditionally independent on given $\zb$;
+\item[---]
+$\Var(Y\mid\zbi)=\sigma^2$ for any $\zbi$ ($\Var(Y_1)=\ldots =\Var(Y_n)$).
 \end{itemize}
-\noindent
-{\it Linear regression model:} (i). Regressor $\Xbi:\Rb^k\to\Rb^m$; $\Xbi(\zbi)$ is defined for any observation \\
-(ii). Linear regression model for single observation 
+
+\subsection*{Linear regression model} 
+
+\noindent(i). Regressor $\Xbi:\Rb^k\to\Rb^m$; $\Xbi(\zbi)$ is defined for any observation.
+
+\noindent(ii). Linear regression model for single observation 
 $$
-\E_{\theta}(Y|\zbi)=\Xbi(\zbi)'\betab
+\E_{\theta}(Y\mid\zbi)=\Xbi(\zbi)'\betab,
 \vspace{-3mm}
 $$
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$\betab=(\beta_1,\ldots,\ldots\beta_m)'$ is $m\times 1$-vector of parameters
-\item[]
-$Y\sim \N(\Xbi(\zbi)'\betab,\sigma)$, where $\sigma$ is the nuisance variance parameter 
-\item[]
-$\thetab=(\beta_1,\ldots,\ldots\beta_m,\sigma)$ is the full parameter of the model
+\item[---]
+$\betab=(\beta_1,\ldots\beta_m)'$ is $m\times 1$-vector of parameters;
+\item[---]
+$Y\sim \N(\Xbi(\zbi)'\betab,\sigma)$, where $\sigma$ is the nuisance variance parameter ;
+\item[---]
+$\thetab=(\beta_1,\ldots,\ldots\beta_m,\sigma)$ is the full parameter of the model.
 \end{itemize}
-The linear regression model is determined by formula 
+The linear regression model is determined by the formula 
 $$
 Y\sim g(z_0)+f(\zbi^*),\quad \zbi^*=(z_1,\ldots,z_k),
 \vspace{-2mm}
@@ -466,185 +468,185 @@ where $g\in \{CD,D,R,A\}$ is the genetic model and $f$ is the covariate term
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
+\item[---]
 $f(\zbi^*)=f_1(\zbi^*)+\ldots+f_r(\zbi^*)$, 
-\item[]
-$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1,\ldots\}$ is of multiple regression type 
-\item[]
-warning: values $r_{ki}\geq 2$ are not available for factors
+\item[---]
+$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1,\ldots\}$ is of multiple regression type;
+\item[---]
+\textit{warning:} values $r_{ki}\geq 2$ are not available for factors.
 \end{itemize}
-The parameter\vspace{-2mm}
+The parameter.\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-The intercept parameter is included into the model by default
-\item[]
+\item[---]
+The intercept parameter is included into the model by default.
+\item[---]
 The covariate $z_0$ generates\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-single parameter if $g\in\{D,R,A\}$ (difference with the baseline level $z_0=0$)
-\item[]
-vector of length two if $g=${\it CD} (main effect with respect to the baseline level $z_0=0$)
+\item[---]
+single parameter if $g\in\{``D,R,A"\}$ (difference with the baseline level $z_0=0$);
+\item[---]
+vector of length two if $g=${\it ``CD"} (main effect with respect to the baseline level $z_0=0$).
 \end{itemize}
-\item[]
-Term $f(\zbi^*)$ should be transformed to $\sum_{\kappa\in K} z_{\kappa}$, where $\kappa$ is a multi-index; $K$ is a (ordered) set of subsets of $\{1,\ldots,k\}$
+\item[---]
+Term $f(\zbi^*)$ defines the (ordered) set $K$ of subsets of $\{1,\ldots,k\}$, every $\kappa\in K$ will be equipped with the map $\mathrm{Deg}_\kappa\colon \kappa\to \mathbb{N}$ defined below:
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-the term $f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$ generates $K_i$ is the set of non empty subsets of $\{r_{k,i}:r_{k,i}=1\}$
-\item[]
-then $K=\cup_{i=1}^r K_i$
-\item[]
-the elements of $K$ should be sorted ($\kappa$'s of smaller length should be sorted before $\kappa$'s of larger length)
+\item[---]
+consider the term $f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$ and the set $\kappa_i = \{\ell \mid r_{\ell i} > 0\}$;
+\item[---]
+then $K=\cup_{i=1}^r \mathbf{2}^{\kappa_i}$, where $\mathbf{2}^{\kappa_i}$ is a powerset of a set $\kappa_i$;
+\item[---]
+for each $\kappa\in K$ by definition $\mathrm{Deg}_\kappa(\ell) = \max \{r_{\ell i} \mid \kappa_i \supset \kappa, i = 1,\ldots,k \}$;
+\item[---]
+the elements of $K$ should be sorted (\textit{e.g.} $\kappa$'s of smaller length may be sorted before $\kappa$'s of larger length).
 \end{itemize}
-We associate a number $d_{\kappa}$ to each index $\kappa\in K$ \vspace{-2mm}
+We associate a number $d_{\kappa}$ to each index $\kappa\in K$. For each $i\in\kappa$\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$d_i=1$ if $z_i$ is numeric or ordinal ($\kappa=i$)
-\item[]
-$d_i=r$ for $z_i^r$ 
-\item[]
-$d_i+1$ is a number of levels of the covariate $z_i$, if $z_i$ is a factor ($\kappa=i$)
-\item[]
+\item[---]
+define $d_i=\mathrm{Deg}_\kappa(i)$ if $z_i$ is numeric or ordinal;
+\item[---]
+define $d_i$, so that $d_i+1$ is a number of levels of the covariate $z_i$, if $z_i$ is a factor. Note, that $\mathrm{Deg}_\kappa(i) = 1$. Also note, that in that case $d_i$ does not actually depend on $\kappa$, which will be used below;
+\item[---]
 in general case $d_{\kappa}=\prod_{i\in\kappa} d_i$. 
 \end{itemize}
 The total length of the nuisance (part corresponding to $f$) parameter is $d=\sum_{\kappa\in K} d_{\kappa}$. 
 \end{itemize}
-
-The regressor\vspace{-2mm}
+The regressor.\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
+\item[---]
 The regressor is a vector $(x_0,x_{K})$ such that \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$x_0=(1,z_0)$ if  $g\in\{D,R,A\}$
-\item[]
-$x_0=(1,\indi_{\{z_0=1\}},\indi_{\{z_0=2\}})$ if  $g=${\it "CD"}   (Model for TEST)
-\item[]
-$x_0=(1,z_0)$ if  $g=${\it "CD"}   (Model for QAS)
-\item[]
-$x_0=1$ (Model for base)
+\item[---]
+$x_0=(1,z_0)$ if  $g\in\{``D,R,A"\}$;
+\item[---]
+$x_0=(1,\indi_{\{z_0=1\}},\indi_{\{z_0=2\}})$ if  $g=${\it ``CD"} (``Model for TEST");
+\item[---]
+$x_0=(1,z_0)$ if  $g=${\it ``CD"}   (``Model for QAS").
+\item[---]
+$x_0=1$ (``Baseline model").
 \end{itemize}
-We use the ordered set $K$ to create regressors for nuisance parameter \vspace{-2mm}
+We use the ordered set $K$ to create regressor $x_K$ for nuisance parameter by merging $x_{\kappa}$ over $\kappa\in K$ in a proper order, where  $x_{\kappa}$ is defined as follows. For each $i\in\kappa$ \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$x_i=z_i$ if $z_i$ is numeric or ordinal ($\kappa=i$)
-\item[]
-$x_i=(z_i,z_i^2,\ldots,z_i^r)$ for $z_i^r$ 
-\item[]
-$x_i$ is a vector of length $d_i$ of $\{0,1\}$ with $1$ on $j$-th position if $z_i=a_{j+1}$, $a_j$ is the $j$-th level of $z_i$ (for example $(0,0,1,0,0)$). 
-\item[]
-in general case $ x_{\kappa}=\mbox{as.vector}(\otimes_{i\in\kappa} x_i)$, where $\otimes$ is the outer product (vector should be sorted in a proper order). 
-\item[]
-the regressor $x_{K}$, which corresponds to the nuisance parameter is obtained by merging $x_{\kappa}$ over $\kappa\in K$ in the proper order. 
+\item[---]
+define $x_i=(z_i,z_i^2,\ldots,z_i^{\mathrm{Deg}_\kappa(i)})$ if $z_i$ is numeric or ordinal;
+\item[---]
+define $x_i$ as the vector of length $d_i$ of $\{0,1\}$ with $1$ on $j$-th position and $0$ elsewhere if $z_i=a_{j+1}$, where $a_j$ is the $j$-th level of $z_i$ (for example $(0,0,1,0,0)$);
+\item[---]
+in general case $ x_{\kappa}=\mathrm{as.vector}(\otimes_{i\in\kappa} x_i)$, where $\otimes$ is the outer product (vector should be sorted in a proper order).
 \end{itemize}
 \end{itemize}
 (iii). Linear regression model for the observed data
 $$
-\E(\Ybi|\zb)=\Xb'\betab
+\E(\Ybi\mid\zb)=\Xb'\betab,
 \vspace{-3mm}
 $$
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$\Xb=(\Xbi(\zbi_1),\ldots,\Xbi(\zbi_n))$ is the $m\times n$-matrix of regressors
-\item[]
-$\betab$ is the $1\times m$-vector of parameters
-\item[]
-assumption $\Ybi\sim \N(\Xb'\betab,\sigma^2 \Ib_n)$, $\Ib_n$ is the identity matrix 
-\item[]
-the matrix $\Xb=(\Xb'_g,{\Xb^*}')'$, where $\Xb_g$ contains the regressors related to $g$ and $\Xb^*$ are the last $d$ rows of the matrix $\Xb$
+\item[---]
+$\Xb=(\Xbi(\zbi_1),\ldots,\Xbi(\zbi_n))$ is the $m\times n$-matrix of regressors;
+\item[---]
+$\betab$ is the $1\times m$-vector of parameters;
+\item[---]
+assumption $\Ybi\sim \N(\Xb'\betab,\sigma^2 \Ib_n)$, $\Ib_n$ is the identity matrix;
+\item[---]
+the matrix $\Xb=(\Xb'_g,{\Xb^*}')'$, where $\Xb_g$ contains the regressors related to $g$ and $\Xb^*$ are the last $d$ rows of the matrix $\Xb$.
 \end{itemize}
 Nuisance parameter reduction\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-the parameter related to $(\zbi_1,\ldots,\zbi_k)$ is not a subject of our interests
-\item[]
-If the matrix $\Xb^*$, which contains the last $d$ rows of the matrix $\Xb$, is not of the full rank $d$, we reduce the matrix $\Xb^*$ to $\Xb^{\circ}$ by choosing only basis vectors of the linear space generated by rows of the matrix $\Xb^*$
-\item[]
-The reduced matrix $\Xb$ is determined by changing block $\Xb^*$ to $\Xb^{\circ}$ in the matrix $\Xb$
+\item[---]
+the parameter related to $(\zbi_1,\ldots,\zbi_k)$ is not a subject of our interests;
+\item[---]
+If the matrix $\Xb^*$, which contains the last $d$ rows of the matrix $\Xb$, is not of the full rank $d$, we reduce the matrix $\Xb^*$ to $\Xb^{\circ}$ by choosing only basis vectors of the linear space generated by rows of the matrix $\Xb^*$;
+\item[---]
+The reduced matrix $\Xb$ is determined by changing block $\Xb^*$ to $\Xb^{\circ}$ in the matrix $\Xb$.
 \end{itemize}
-{\it QAS and P-value.} Under $\Xb\Xb'$ is of full rank (positively definite), the least square estimator (LSE) is given by 
+
+\subsection*{QAS and P-value}
+
+\noindent Under $\Xb\Xb'$ is of full rank (positively definite), the least square estimator (LSE) is given by 
 $$
-\widehat\betab=(\Xb\Xb')^{-1}\Xb\Ybi
+\widehat\betab=(\Xb\Xb')^{-1}\Xb\Ybi.
 $$
 The sum of squares
 $$
-S(\betab)=\|\Ybi-\Xb'\betab\|^2=(\Ybi-\Xb'\betab)'(\Ybi-\Xb'\betab)
+S(\betab)=\|\Ybi-\Xb'\betab\|^2=(\Ybi-\Xb'\betab)'(\Ybi-\Xb'\betab).
 $$
-{\it Notatons} ("Model for QAS" is equal to "Model for TEST" if $g=${\it A,D,R"}): 
+\subsubsection*{Notations} 
+\noindent Note, that ``Model for QAS" is equal to ``Model for TEST" if $g=${\it ``A,D,R"}. 
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-$\Xb$/$\Xb_q$/$\Xb_0$ is the regressors in the "Model for TEST"/"Model for QAS"/"Baseline model" respectively
-\item[]
-$\widehat\betab$/$\widehat\betab_q$/$\widehat\betab_0$ is the LSE from the "Model for TEST"/"Model for QAS"/"Baseline model" respectively
-\item[]
-$S(\widehat\betab)$/$S_q(\widehat\betab_q)$/$S_0(\widehat\betab_0)$ is the sums of squares from the "Model for TEST"/"Model for QAS"/ "Baseline model" respectively
+\item[---]
+$\Xb$, $\Xb_q$, $\Xb_0$ are the regressors in the ``Model for TEST", ``Model for QAS", ``Baseline model" respectively;
+\item[---]
+$\widehat\betab$, $\widehat\betab_q$, $\widehat\betab_0$ is the LSE from the ``Model for TEST", ``Model for QAS", ``Baseline model" respectively;
+\item[---]
+$S(\widehat\betab)$, $S_q(\widehat\betab_q)$, $S_0(\widehat\betab_0)$ is the sums of squares from the ``Model for TEST", ``Model for QAS", ``Baseline model" respectively.
 \end{itemize}
-{\it The algorithm} \\
-The input data contain: "phenotype"(numeric vector), "genotype","covariates"(matrix),"covariate types"(vector) and "formula"
+\subsubsection*{The algorithm}
+
+\noindent The input data contain: ``phenotype"(numeric vector), ``genotype",``covariates"(matrix),``covariate types"(vector) and ``formula".
  \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item[(i)]
-Create regressors related to covariates $\Xb^*$
+Create regressors related to covariates $\Xb^*$.
 \item[(ii)]
-Check that the rank of the matrix $\Xb^*$ is full\vspace{-2mm}
+Check that the rank of the matrix $\Xb^*$ is full.\vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
+\item[---]
 if the rank of matrix $\Xb^*$ is not equal to $d$,  apply nuisance parameter reduction $\Xb^*\!:=\!\Xb^{\circ}$. 
 \end{itemize}
 \item[(iii)]
-Loop by genotypes
-\item[]
-Create regressors $\Xb_g$ for "Model for TEST", for "Model for QAS" and for "Baseline model"
-\item[]
-Check that the rank of the matrix $\Xb_g$ related to $g$ is maximal ($2$ if $g=${\it A,D,R"} or 3 if $g=${\it CD"})
+Loop by genotypes.
+\item[---]
+Create regressors $\Xb_g$ for ``Model for TEST", for ``Model for QAS" and for ``Baseline model".
+\item[---]
+Check that the rank of the matrix $\Xb_g$ related to $g$ is maximal ($2$ if $g=${\it ``A,D,R"} or 3 if $g=${\it ``CD"}):
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
-\item[]
-if the rank of the matrix $\Xb_g$ in the "Model for TEST" is not maximal, report $qas[i]=NA$ and $pv[i]=NA$ 
-\item[]
-otherwise, continue
+\item[---]
+if the rank of the matrix $\Xb_g$ in the ``Model for TEST" is not maximal, report $\mathtt{qas}[i]=\mathtt{NA}$ and $\mathtt{pv}[i]=\mathtt{NA}$;
+\item[---]
+otherwise, continue.
 \end{itemize}
-\item[]
-Create matrix $\Xb$ by merging $\Xb_g$ and $\Xb^*$
-\item[]
-If the rank of matrix $\Xb$ is not equal to its number of rows use nuisance parameter reduction to whole $\Xb$ ($\Xb_g$ should not be changed) 
-\item[]
-Fit the "Model for QAS"
+\item[---]
+Create matrix $\Xb$ by merging $\Xb_g$ and $\Xb^*$.
+\item[---]
+If the rank of matrix $\Xb$ is not equal to its number of rows use nuisance parameter reduction to whole $\Xb$ ($\Xb_g$ should not be changed).
+\item[---]
+Fit the ``Model for QAS":
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.1em}
-\item[]
-assign $qas[i]$ the coefficient, related to $\zbi_0$ (second element of the vector $\widehat\betab$)
+\item[---]
+assign $\mathtt{qas}[i]$ the coefficient, related to $\zbi_0$ (second element of the vector $\widehat\betab$).
 \end{itemize}
-\item[]
-Fit the "Model for TESTS" and the "Baseline model" 
+\item[---]
+Fit the ``Model for TESTS" and the ``Baseline model":
 \vspace{-2mm}
 \begin{itemize}
 \setlength\itemsep{-0.1em}
-\item[]
-$SS_e=S(\widehat\betab)$; $\overline{SS}_e=SS_e/\mbox{df}$, where df$=n-\rk(\Xb)$
-\item[]
-$SS_h=S_0(\widehat\betab_0)-SS_e$; $\overline{SS}_h=SS_H/\mbox{df}_h$, where df$_h=2$ if $g=$"{\it CD}" and df$_h=1$ if $g=$"{\it A,D,R}"
-\item[]
-$\F=\overline{SS}_h/\overline{SS}_e$ is the $F$-statistic, which has under null hypothesis $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$-distribution
-\item[]
-assign $pv[i]:=1-F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}(\F)$, where $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$ is the distribution function of the Fisher--Snedecor distribution $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$
+\item[---]
+$SS_e=S(\widehat\betab)$; $\overline{SS}_e=SS_e/\mathrm{df}$, where $\mathrm{df} =n-\rk(\Xb)$;
+\item[---]
+$SS_h=S_0(\widehat\betab_0)-SS_e$; $\overline{SS}_h=SS_h/\mathrm{df}_h$, where df$_h=2$ if $g=${\it ``CD"} and $\mathrm{df}_h=1$ if $g=${\it ``A,D,R"};
+\item[---]
+$\F=\overline{SS}_h/\overline{SS}_e$ is the $F$-statistic, which has under null hypothesis $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$-distribution;
+\item[---]
+assign $\mathtt{pv}[i]=1-F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}(\F)$, where $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$ is the distribution function of the Fisher--Snedecor distribution $F_{\mbox{\scriptsize df}_h,\mbox{\scriptsize df}}$.
 \end{itemize}
-\item[(iii)]
-Return the vectors $pv$ and $qas$. 
+\item[(iv)]
+Return the vectors $\mathtt{pv}$ and $\mathtt{qas}$. 
 \end{itemize}
 \end{document}
