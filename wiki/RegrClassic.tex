@@ -471,9 +471,9 @@ where $g\in \{CD,D,R,A\}$ is the genetic model and $f$ is the covariate term
 \item[---]
 $f(\zbi^*)=f_1(\zbi^*)+\ldots+f_r(\zbi^*)$, 
 \item[---]
-$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1,\ldots\}$ is of multiple regression type;
-\item[---]
-\textit{warning:} values $r_{ki}\geq 2$ are not available for factors.
+$f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$, $r_{1i},\ldots,r_{ki}\in\{0,1,\ldots\}$ is of multiple regression type.
+\item[]
+\textit{Warning:} values $r_{ki}\geq 2$ are not available for factors.
 \end{itemize}
 The parameter.\vspace{-2mm}
 \begin{itemize}
@@ -495,9 +495,9 @@ Term $f(\zbi^*)$ defines the (ordered) set $K$ of subsets of $\{1,\ldots,k\}$, e
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item[---]
-consider the term $f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$ and the set $\kappa_i = \{\ell \mid r_{\ell i} > 0\}$;
+for each $i$ consider the term $f_i(\zbi^*)=z_1^{r_{1i}}*\ldots*z_k^{r_{ki}}$ and define the set $\kappa_i = \{\ell \mid r_{\ell i} > 0\}$;
 \item[---]
-then $K=\cup_{i=1}^r \mathbf{2}^{\kappa_i}$, where $\mathbf{2}^{\kappa_i}$ is a powerset of a set $\kappa_i$;
+then by definition $K=\cup_{i=1}^r \mathbf{2}^{\kappa_i}$, where $\mathbf{2}^{\kappa}$ is a powerset of a set $\kappa$;
 \item[---]
 for each $\kappa\in K$ by definition $\mathrm{Deg}_\kappa(\ell) = \max \{r_{\ell i} \mid \kappa_i \supset \kappa, i = 1,\ldots,k \}$;
 \item[---]
@@ -509,7 +509,7 @@ We associate a number $d_{\kappa}$ to each index $\kappa\in K$. For each $i\in\k
 \item[---]
 define $d_i=\mathrm{Deg}_\kappa(i)$ if $z_i$ is numeric or ordinal;
 \item[---]
-define $d_i$, so that $d_i+1$ is a number of levels of the covariate $z_i$, if $z_i$ is a factor. Note, that $\mathrm{Deg}_\kappa(i) = 1$. Also note, that in that case $d_i$ does not actually depend on $\kappa$, which will be used below;
+define $d_i$, so that $d_i+1$ is a number of levels of the covariate $z_i$, if $z_i$ is a factor. Note that $\mathrm{Deg}_\kappa(i) = 1$. Also note that in that case $d_i$ does not actually depend on $\kappa$, which will be used below;
 \item[---]
 in general case $d_{\kappa}=\prod_{i\in\kappa} d_i$. 
 \end{itemize}
