@@ -12,7 +12,7 @@
         "swiftmailer/swiftmailer": "~5.4",
         "symfony/security": "~2.8",
 
-         "twig/twig": "2.0"
+         "twig/twig": "2.15.3"
     },
     
     "autoload": {
